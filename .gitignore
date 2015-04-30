@@ -2,3 +2,6 @@
 *.class
 *.iml
 /out/
+/.idea/
+/fudandb/.idea/
+*.xml
