@@ -25,4 +25,16 @@ public class Order{
 		}
 		return resultstr;
 	}
+
+	public int newOrder(String username, Statement stmt){
+		return -1;
+	}
+
+	public void addABook(int order_num, String ISBN, Statement stmt){
+
+	}
+
+	public void increaseQuantity(int order_num, String ISBN, int qty, Statement stmt){
+
+	}
 }
