@@ -1,3 +1,15 @@
+DROP TABLE Declares;
+DROP TABLE Rate;
+DROP TABLE InOrder;
+DROP TABLE Keyword;
+DROP TABLE AuthorOf;
+DROP TABLE Orders;
+DROP TABLE Feedback;
+DROP TABLE User;
+DROP TABLE Author;
+DROP TABLE Book;
+DROP TABLE Publisher;
+
 
 CREATE TABLE Publisher(	pname CHAR(40),
 						introduce VARCHAR(2000),
@@ -24,7 +36,7 @@ CREATE TABLE User(	username CHAR(20),
 					fullname CHAR(20),
 					age INTEGER CHECK(age > 0),
 					addr CHAR(100),
-					phone CHAR(10),
+					phone CHAR(15),
 					PRIMARY KEY(username));
 
 CREATE TABLE Feedback(	fid INTEGER,

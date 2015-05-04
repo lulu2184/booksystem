@@ -10,11 +10,22 @@ public class ManageMenu extends List{
 //    public static Page[] menu = {};
 //    public static String message = "--welcom to manage page--";
 
-    public ManageMenu(){
-        //menu = new Page[]{};
-        menu = new Page[]{};
-        message = "";
+    static private ManageMenu oneInstance = null;
+
+    static public ManageMenu getInstance(){
+        if (oneInstance == null){
+            oneInstance = new ManageMenu();
+        }
+        return oneInstance;
     }
+
+    private ManageMenu(){
+        //menu = new Page[]{};
+        menu = new Page[]{Page.LOGIN};
+        message = "  manage page";
+    }
+
+
 
 //    public boolean Do(PageController pc){
 //        System.out.println("--welcom to manage page--");

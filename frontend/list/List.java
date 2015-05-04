@@ -23,6 +23,7 @@ public class List {
             System.out.println(Integer.toString(i + 1) + ". " + menu[i].getMessage());
         }
         System.out.println(Integer.toString(menu.length + 1) + ". exit this menu.");
+        System.out.println("please enter your choice:");
     }
 
     protected int getChoice() throws IOException, NumberFormatException{
@@ -31,7 +32,7 @@ public class List {
 
     protected boolean transfer(PageController pc) throws EmptyStackException{
         int c = 0;
-        boolean result = false;
+        boolean result = true;
         try{
             c = getChoice() - 1;
             if (c >= 0 && c < menu.length){

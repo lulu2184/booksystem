@@ -6,8 +6,8 @@ import java.sql.*;
  * Created by LU on 15/5/3.
  */
 public class Connector {
-    private Connection con;
-    private Statement stmt;
+    private static Connection con;
+    private static Statement stmt;
 
     private static Connector ourInstance = null;
 
@@ -39,7 +39,8 @@ public class Connector {
     }
 
     public static ResultSet ExecuteQuery(String query) throws Exception{
-        return null;
+        ResultSet rs = stmt.executeQuery(query);
+        return rs;
     }
 
     public static void close() throws SQLException{

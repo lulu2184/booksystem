@@ -1,8 +1,10 @@
 package frontend;
 
+import frontend.functionality.Login;
 import frontend.list.List;
 import frontend.list.MainMenu;
 import frontend.list.ManageMenu;
+import frontend.list.UserMenu;
 
 import java.util.EmptyStackException;
 
@@ -12,22 +14,24 @@ import java.util.EmptyStackException;
 public enum Page {
     MAINMENU("Book Store Manage System"){
        boolean Do(PageController pc) throws EmptyStackException{
-            return new MainMenu().Do(pc);
+            return MainMenu.getInstance().Do(pc);
        }
     },
-//    USERMENU("Book Store Manage System ---- User Page"){
-//        boolean Do(PageController pc){
-//            return new
-//        }
-//    },
+    USERMENU("Book Store Manage System ---- User Page"){
+        boolean Do(PageController pc){
+            UserMenu.getInstance().Do(pc);
+            return true;
+        }
+    },
     LOGIN("login"){
         boolean Do(PageController pc){
+            new Login().Do(pc);
             return true;
         }
     },
     MANAGERMENU("enter manager menu"){
         boolean Do(PageController pc){
-            return new ManageMenu().Do(pc);
+            return ManageMenu.getInstance().Do(pc);
         }
     };
   //  LOGIN,

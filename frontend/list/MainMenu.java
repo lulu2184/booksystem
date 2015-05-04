@@ -12,7 +12,16 @@ public class MainMenu extends List{
 //    public static Page[] menu = {Page.LOGIN, Page.MANAGERMENU};
 //    public static String message = "";
 
-    public MainMenu(){
+    static private MainMenu oneInstance = null;
+
+    static public MainMenu getInstance(){
+        if (oneInstance == null) {
+            oneInstance = new MainMenu();
+        }
+        return oneInstance;
+    }
+
+    private MainMenu(){
         menu = new Page[] {Page.LOGIN, Page.MANAGERMENU};
         message = "";
     }
