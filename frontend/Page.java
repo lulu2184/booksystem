@@ -25,7 +25,11 @@ public enum Page {
     },
     LOGIN("login"){
         boolean Do(PageController pc){
-            new Login().Do(pc);
+            try {
+                new Login().Do(pc);
+            } catch (NoSuchFieldException e) {
+                System.err.println(e.getMessage());
+            }
             return true;
         }
     },

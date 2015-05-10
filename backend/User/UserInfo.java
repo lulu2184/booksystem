@@ -5,12 +5,12 @@ package backend.User;
  */
 public class UserInfo {
 
-    private String username;
-    private String password;
-    private String fullname;
-    private int age;
-    private String address;
-    private String phone;
+    public String username;
+    public String password;
+    public String fullname;
+    public int age;
+    public String address;
+    public String phone;
 
     public UserInfo(){
 
