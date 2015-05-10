@@ -26,7 +26,7 @@ public class UserMenu extends List{
     }
 
     public static void login(String user){
-        getInstance().setUsername(username);
+        getInstance().setUsername(user);
     }
 
     public static void logout(){

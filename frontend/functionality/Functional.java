@@ -11,12 +11,14 @@ abstract class Functional {
 
     }
 
-    protected abstract void getInfo();
+    protected abstract boolean getInfo();
     protected abstract void execute(PageController pc);
 
     public void Do(PageController pc){
-        getInfo();
-        execute(pc);
+        pc.exitCurrentPage();
+        if (getInfo()){
+            execute(pc);
+        }
     }
 
 }
