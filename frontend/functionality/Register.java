@@ -1,6 +1,7 @@
 package frontend.functionality;
 
 import backend.User.NewUser;
+import backend.User.User;
 import backend.User.UserInfo;
 import frontend.Input;
 import frontend.Page;
@@ -52,7 +53,7 @@ public class Register extends Functional{
         if (rs == NewUser.VALID){
             System.out.println("Successful to register.");
             pc.changeCurrentPage(Page.USERMENU);
-            UserMenu.login(username);
+            pc.setUser(new User(username));
         } else{
             System.out.println("Unsucessful to register." + rs.getMessage());
         }

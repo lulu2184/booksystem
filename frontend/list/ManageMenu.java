@@ -25,6 +25,10 @@ public class ManageMenu extends List{
         message = "  manage page";
     }
 
+    public String getMessage(PageController pc){
+        return message;
+    }
+
 
 
 //    public boolean Do(PageController pc){

@@ -5,11 +5,14 @@ package backend.User;
  */
 public class User {
 
-    public static boolean UserVerify(String username){
-        return false;
+    private String username;
+
+    public User(String _username){
+        username = _username;
     }
 
-    public static boolean UserAndPasswordVerify(String username, String password){
-        return false;
+    public String getUsername(){
+        return username;
     }
+
 }

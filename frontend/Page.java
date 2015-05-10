@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.User.User;
 import frontend.functionality.Login;
 import frontend.functionality.Register;
 import frontend.list.List;
@@ -52,6 +53,7 @@ public enum Page {
   //  LOGIN,
    // REGISTER;
     private final String message;
+    private User user = null;
 
     Page(String message){
         this.message = message;

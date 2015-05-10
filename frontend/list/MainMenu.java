@@ -26,6 +26,10 @@ public class MainMenu extends List{
         message = "";
     }
 
+    public String getMessage(PageController pc){
+        return message;
+    }
+
 //    public boolean Do(PageController pc){
 //        display(menu);
 //        return transfer(pc, menu);

@@ -10,7 +10,7 @@ import java.util.EmptyStackException;
 /**
  * Created by LU on 15/5/3.
  */
-public class List {
+abstract public class List {
     protected Page[] menu = {Page.MANAGERMENU};
     protected String message = "";
 
@@ -51,8 +51,10 @@ public class List {
     }
 
     public boolean Do(PageController pc){
-        System.out.println(message);
+        System.out.println(getMessage(pc));
         display(menu);
         return transfer(pc);
     }
+
+    abstract public String getMessage(PageController pc);
 }

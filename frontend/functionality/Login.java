@@ -1,5 +1,6 @@
 package frontend.functionality;
 
+import backend.User.User;
 import backend.User.UserCheck;
 import frontend.Input;
 import frontend.Page;
@@ -25,7 +26,7 @@ public class Login extends Functional{
         if (uc == UserCheck.VALID){
             System.out.println("Successful to login.");
             pc.changeCurrentPage(Page.USERMENU);
-            UserMenu.login(username);
+            pc.setUser(new User(username));
         }else{
             System.out.println("Unsuccessful to login. " + uc.getMessage());
         }

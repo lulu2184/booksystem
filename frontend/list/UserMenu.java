@@ -1,35 +1,28 @@
 package frontend.list;
 
 import frontend.Page;
+import frontend.PageController;
 
 /**
  * Created by LU on 15/5/4.
  */
-public class UserMenu extends List{
+public class UserMenu extends List {
     private static String username;
     private static UserMenu oneInstance = null;
 
-    private UserMenu(){
+    private UserMenu() {
         menu = new Page[]{};
+        message = "welcome, ";
     }
 
-    public static UserMenu getInstance(){
-        if (oneInstance == null){
+    public static UserMenu getInstance() {
+        if (oneInstance == null) {
             oneInstance = new UserMenu();
         }
         return oneInstance;
     }
 
-    public void setUsername(String user){
-        this.username = user;
-        this.message = "Welcome, " + username;
-    }
-
-    public static void login(String user){
-        getInstance().setUsername(user);
-    }
-
-    public static void logout(){
-        oneInstance = null;
+    public String getMessage(PageController pc) {
+        return this.message + pc.getUserName();
     }
 }
