@@ -34,11 +34,11 @@ public class Connector {
             }
     }
 
-    public static void ExecuteInsertion(String insertion) throws Exception{
-        stmt.execute(insertion);
+    public static void ExecuteInsertion(String insertion) throws SQLException{
+        stmt.executeUpdate(insertion);
     }
 
-    public static ResultSet ExecuteQuery(String query) throws Exception{
+    public static ResultSet ExecuteQuery(String query) throws SQLException{
         ResultSet rs = stmt.executeQuery(query);
         return rs;
     }

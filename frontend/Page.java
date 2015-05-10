@@ -1,6 +1,7 @@
 package frontend;
 
 import frontend.functionality.Login;
+import frontend.functionality.Register;
 import frontend.list.List;
 import frontend.list.MainMenu;
 import frontend.list.ManageMenu;
@@ -23,6 +24,11 @@ public enum Page {
             return true;
         }
     },
+    MANAGERMENU("enter manager menu"){
+        boolean Do(PageController pc){
+            return ManageMenu.getInstance().Do(pc);
+        }
+    },
     LOGIN("login"){
         boolean Do(PageController pc){
             try {
@@ -33,9 +39,14 @@ public enum Page {
             return true;
         }
     },
-    MANAGERMENU("enter manager menu"){
+    REGISTER("register"){
         boolean Do(PageController pc){
-            return ManageMenu.getInstance().Do(pc);
+            try{
+                new Register().Do(pc);
+            } catch (NoSuchFieldException e){
+                System.err.println(e.getMessage());
+            }
+            return true;
         }
     };
   //  LOGIN,

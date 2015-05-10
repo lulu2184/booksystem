@@ -8,7 +8,7 @@ public class UserInfo {
     public String username;
     public String password;
     public String fullname;
-    public int age;
+    public Integer age;
     public String address;
     public String phone;
 
@@ -16,5 +16,13 @@ public class UserInfo {
 
     }
 
+    public UserInfo(String _username, String _password, String _fullname, Integer _age, String _addr, String _phone){
+        username = _username;
+        password = _password;
+        fullname = _fullname;
+        age = _age;
+        address = _addr;
+        phone = _phone;
+    }
 
 }

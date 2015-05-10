@@ -22,7 +22,7 @@ public class MainMenu extends List{
     }
 
     private MainMenu(){
-        menu = new Page[] {Page.LOGIN, Page.MANAGERMENU};
+        menu = new Page[] {Page.LOGIN, Page.REGISTER, Page.MANAGERMENU};
         message = "";
     }
 
