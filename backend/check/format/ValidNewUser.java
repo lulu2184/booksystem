@@ -1,10 +1,8 @@
 package backend.check.format;
 
-import backend.check.format.unit.LetterChecker;
-import backend.check.format.unit.StringLengthChecker;
-import backend.check.format.unit.TextChecker;
-import backend.exception.formatException.LengthOverBoundaryException;
-import backend.exception.formatException.TextFormatException;
+import backend.check.format.field.PasswordCheck;
+import backend.check.format.field.UsernameCheck;
+import backend.check.CheckResult;
 
 /**
  * Created by LU on 15/5/11.
@@ -19,8 +17,17 @@ public class ValidNewUser extends FormatChecker{
     private final static int longestFullname = 20;
 
 
-    public static boolean check(String username, String password, String fullname)
-                throws LengthOverBoundaryException, TextFormatException{
+    public static CheckResult check(String username, String password, String fullname){
+        CheckResult result = new UsernameCheck(username).check();
+        if (!result.isValid()){
+            return result;
+        }
+        result = new PasswordCheck(password).check();
+        if (!result.isValid()){
+            return result;
+        }
+        result =
+
 //        if (!StringLengthChecker.check(username, shortestName, longestName)){
 //            throw new LengthOverBoundaryException("The length of username is not between "
 //                                    + Integer.toString(shortestName) + " and " + Integer.toString(longestName));
@@ -40,6 +47,5 @@ public class ValidNewUser extends FormatChecker{
 //            throw new TextFormatException("All characters in fullname should be letters.");
 //        }
 //        return true;
-        return true;
     }
 }
