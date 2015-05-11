@@ -13,8 +13,8 @@ public class Login extends InterativeForm {
     protected String password;
 
     public Login() throws NoSuchFieldException{
-        infoList.add(new DialogPair("please enter your username:", this.getClass().getDeclaredField("username")));
-        infoList.add(new DialogPair("please enter your password:", this.getClass().getDeclaredField("password")));
+        infoList.add(createDialogPair("please enter your username:", "username"));
+        infoList.add(createDialogPair("please enter your password:", "password"));
     }
 
     protected void execute(PageController pc){

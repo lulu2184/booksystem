@@ -4,6 +4,7 @@ import frontend.Input;
 import frontend.PageController;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 
@@ -15,6 +16,10 @@ abstract class InterativeForm {
 
     public InterativeForm(){
 
+    }
+
+    protected DialogPair createDialogPair(String info, String fieldName) throws NoSuchFieldException{
+        return new DialogPair(info, this.getClass().getDeclaredField(fieldName));
     }
 
     protected abstract void execute(PageController pc);

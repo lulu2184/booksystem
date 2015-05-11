@@ -49,9 +49,9 @@ CREATE TABLE Feedback(	fid INTEGER,
 						FOREIGN KEY(ISBN) REFERENCES Book(ISBN),
 						FOREIGN KEY(username) REFERENCES User(username));
 
-CREATE TABLE Orders(orderid INTEGER,
-					order_date DATETIME,
-					username CHAR(20),
+CREATE TABLE Orders(orderid BIGINT,
+					order_date DATETIME NOT NULL DEFAULT NOW(),
+					username CHAR(20) NOT NULL,
 					PRIMARY KEY (orderid),
 					FOREIGN KEY(username) REFERENCES User(username));
 
@@ -66,7 +66,7 @@ CREATE TABLE Keyword(	ISBN CHAR(40),
 						PRIMARY KEY(ISBN, content),
 						FOREIGN KEY(ISBN) REFERENCES Book(ISBN));
 
-CREATE TABLE InOrder(	orderid INTEGER,
+CREATE TABLE InOrder(	orderid BIGINT,
 						ISBN CHAR(40),
 						num INTEGER CHECK(num > 0),
 						PRIMARY KEY(orderid, ISBN),

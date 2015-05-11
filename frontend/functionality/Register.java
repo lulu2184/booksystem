@@ -19,12 +19,12 @@ public class Register extends InterativeForm {
     UserInfo information;
 
     public Register() throws NoSuchFieldException{
-        infoList.add(new DialogPair("please enter your username;", this.getClass().getDeclaredField("username")));
-        infoList.add(new DialogPair("please enter your password:", this.getClass().getDeclaredField("password")));
-        infoList.add(new DialogPair("please enter your fullname:", this.getClass().getDeclaredField("fullname")));
-        infoList.add(new DialogPair("please enter your age:", this.getClass().getDeclaredField("age")));
-        infoList.add(new DialogPair("please enter your address:", this.getClass().getDeclaredField("address")));
-        infoList.add(new DialogPair("please enter your phone number:", this.getClass().getDeclaredField("phone")));
+        infoList.add(createDialogPair("please enter your username;","username"));
+        infoList.add(createDialogPair("please enter your password:", "password"));
+        infoList.add(createDialogPair("please enter your fullname:", "fullname"));
+        infoList.add(createDialogPair("please enter your age:", "age"));
+        infoList.add(createDialogPair("please enter your address:", "address"));
+        infoList.add(createDialogPair("please enter your phone number:", "phone"));
     }
 
 //    public boolean getInfo(){
