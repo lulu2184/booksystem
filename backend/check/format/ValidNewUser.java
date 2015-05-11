@@ -21,24 +21,25 @@ public class ValidNewUser extends FormatChecker{
 
     public static boolean check(String username, String password, String fullname)
                 throws LengthOverBoundaryException, TextFormatException{
-        if (!StringLengthChecker.check(username, shortestName, longestName)){
-            throw new LengthOverBoundaryException("The length of username is not between "
-                                    + Integer.toString(shortestName) + " and " + Integer.toString(longestName));
-        }
-        if (!TextChecker.check(username)){
-            throw new TextFormatException("All characters in username should be letters or digits.");
-        }
-        if (!StringLengthChecker.check(password, shortestPassword, longestPassword)){
-            throw new LengthOverBoundaryException("The length of password is not between "
-                                    + Integer.toString(shortestPassword) + " and " + Integer.toString(longestPassword));
-        }
-        if (!TextChecker.check(password)){
-            throw new TextFormatException("All characters in password should be letters or digits.");
-        }
-        if ()
-        if (!LetterChecker.check(fullname)){
-            throw new TextFormatException("All characters in fullname should be letters.");
-        }
+//        if (!StringLengthChecker.check(username, shortestName, longestName)){
+//            throw new LengthOverBoundaryException("The length of username is not between "
+//                                    + Integer.toString(shortestName) + " and " + Integer.toString(longestName));
+//        }
+//        if (!TextChecker.check(username)){
+//            throw new TextFormatException("All characters in username should be letters or digits.");
+//        }
+//        if (!StringLengthChecker.check(password, shortestPassword, longestPassword)){
+//            throw new LengthOverBoundaryException("The length of password is not between "
+//                                    + Integer.toString(shortestPassword) + " and " + Integer.toString(longestPassword));
+//        }
+//        if (!TextChecker.check(password)){
+//            throw new TextFormatException("All characters in password should be letters or digits.");
+//        }
+//        if ()
+//        if (!LetterChecker.check(fullname)){
+//            throw new TextFormatException("All characters in fullname should be letters.");
+//        }
+//        return true;
         return true;
     }
 }
