@@ -7,7 +7,7 @@ import frontend.PageController;
  */
 public class InsertInOrder extends Order {
 
-    public InsertInOrder(String username){
+    public InsertInOrder(String username) throws NoSuchFieldException{
         super(username);
     }
 

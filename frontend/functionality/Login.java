@@ -1,9 +1,13 @@
 package frontend.functionality;
 
+import backend.check.content.ValidUser;
+import backend.exception.informationException.InformationException;
 import backend.user.User;
 import backend.user.UserCheck;
 import frontend.Page;
 import frontend.PageController;
+
+import java.sql.SQLException;
 
 /**
  * Created by LU on 15/5/4.
@@ -17,14 +21,29 @@ public class Login extends InterativeForm {
         infoList.add(createDialogPair("please enter your password:", "password"));
     }
 
+//    protected void execute(PageController pc){
+//        UserCheck uc = UserCheck.verifyUser(username, password);
+//        if (uc == UserCheck.VALID){
+//            System.out.println("Successful to login.");
+//            pc.changeCurrentPage(Page.USERMENU);
+//            pc.setUser(new User(username));
+//        }else{
+//            System.out.println("Unsuccessful to login. " + uc.getMessage());
+//        }
+//    }
+
     protected void execute(PageController pc){
-        UserCheck uc = UserCheck.verifyUser(username, password);
-        if (uc == UserCheck.VALID){
+        try{
+            new ValidUser(username, password).check();
             System.out.println("Successful to login.");
             pc.changeCurrentPage(Page.USERMENU);
             pc.setUser(new User(username));
-        }else{
-            System.out.println("Unsuccessful to login. " + uc.getMessage());
+        }catch (SQLException e){
+            System.out.println("Unsuccessful to login. SQLException occurs.");
+            System.err.println("Error message as follows:");
+            System.err.println(e.getMessage());
+        }catch (InformationException e){
+            System.out.println("Unsuccessful to login. " + e.getMessage());
         }
     }
 

@@ -15,6 +15,7 @@ public enum InsertInOrder {
             String sql = "SELECT * FROM Book WHERE ISBN = " + ISBN + ";";
             Connector.ExecuteQuery(sql);
            // if ()
+            return false;
         }
     },
     ALREADY_IN_ORDER("this book is already in this order."),
@@ -32,5 +33,6 @@ public enum InsertInOrder {
 
     public static InsertInOrder insert(long orderid, String ISBN, int qty){
        // verify()
+        return VALID;
     }
 }
