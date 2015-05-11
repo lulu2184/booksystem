@@ -1,4 +1,4 @@
-package backend.User;
+package backend.user;
 
 /**
  * Created by LU on 15/5/4.

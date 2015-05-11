@@ -6,9 +6,7 @@ import frontend.PageController;
 /**
  * Created by LU on 15/5/3.
  */
-public class ManageMenu extends List{
-//    public static Page[] menu = {};
-//    public static String message = "--welcom to manage page--";
+public class ManageMenu extends Menu {
 
     static private ManageMenu oneInstance = null;
 
@@ -20,20 +18,12 @@ public class ManageMenu extends List{
     }
 
     private ManageMenu(){
-        //menu = new Page[]{};
         menu = new Page[]{Page.LOGIN};
         message = "  manage page";
+        exitmessage = "exit manager menu.";
     }
 
     public String getMessage(PageController pc){
         return message;
     }
-
-
-
-//    public boolean Do(PageController pc){
-//        System.out.println("--welcom to manage page--");
-//        display(menu);
-//        return transfer(pc, menu);
-//    }
 }

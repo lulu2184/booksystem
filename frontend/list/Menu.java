@@ -10,19 +10,20 @@ import java.util.EmptyStackException;
 /**
  * Created by LU on 15/5/3.
  */
-abstract public class List {
+abstract public class Menu {
     protected Page[] menu = {Page.MANAGERMENU};
     protected String message = "";
+    protected String exitmessage = "";
 
-    public List(){
+    public Menu(){
 
     }
 
-    protected void display(Page[] menu){
+    protected void showText(Page[] menu){
         for (int i = 0; i < menu.length; ++i){
             System.out.println(Integer.toString(i + 1) + ". " + menu[i].getMessage());
         }
-        System.out.println(Integer.toString(menu.length + 1) + ". exit this menu.");
+        System.out.println(Integer.toString(menu.length + 1) + ". " + exitmessage);
         System.out.println("please enter your choice:");
     }
 
@@ -50,9 +51,9 @@ abstract public class List {
         return result;
     }
 
-    public boolean Do(PageController pc){
+    public boolean display(PageController pc){
         System.out.println(getMessage(pc));
-        display(menu);
+        showText(menu);
         return transfer(pc);
     }
 

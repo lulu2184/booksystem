@@ -1,18 +1,14 @@
 package frontend.functionality;
 
-import backend.User.User;
-import backend.User.UserCheck;
-import frontend.Input;
+import backend.user.User;
+import backend.user.UserCheck;
 import frontend.Page;
 import frontend.PageController;
-import frontend.list.UserMenu;
-
-import java.util.NoSuchElementException;
 
 /**
  * Created by LU on 15/5/4.
  */
-public class Login extends Functional{
+public class Login extends InterativeForm {
     protected String username;
     protected String password;
 

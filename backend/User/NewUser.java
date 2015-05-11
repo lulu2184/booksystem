@@ -1,4 +1,4 @@
-package backend.User;
+package backend.user;
 
 import backend.Connector;
 

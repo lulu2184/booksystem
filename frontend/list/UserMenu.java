@@ -6,13 +6,14 @@ import frontend.PageController;
 /**
  * Created by LU on 15/5/4.
  */
-public class UserMenu extends List {
+public class UserMenu extends Menu {
     private static String username;
     private static UserMenu oneInstance = null;
 
     private UserMenu() {
         menu = new Page[]{};
         message = "welcome, ";
+        exitmessage = "logout";
     }
 
     public static UserMenu getInstance() {

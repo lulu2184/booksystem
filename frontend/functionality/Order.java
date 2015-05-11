@@ -1,12 +1,12 @@
 package frontend.functionality;
 
-import backend.User.User;
+import backend.user.User;
 import frontend.PageController;
 
 /**
  * Created by LU on 15/5/10.
  */
-public class Order extends Functional{
+public class Order extends InterativeForm {
     User user;
 
     public Order(User _user){

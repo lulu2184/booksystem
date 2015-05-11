@@ -1,17 +1,15 @@
 package frontend.functionality;
 
-import backend.User.NewUser;
-import backend.User.User;
-import backend.User.UserInfo;
-import frontend.Input;
+import backend.user.NewUser;
+import backend.user.User;
+import backend.user.UserInfo;
 import frontend.Page;
 import frontend.PageController;
-import frontend.list.UserMenu;
 
 /**
  * Created by LU on 15/5/4.
  */
-public class Register extends Functional{
+public class Register extends InterativeForm {
     String username;
     String password;
     String fullname;

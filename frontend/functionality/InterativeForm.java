@@ -10,10 +10,10 @@ import java.util.IllegalFormatCodePointException;
 /**
  * Created by LU on 15/5/4.
  */
-abstract class Functional {
+abstract class InterativeForm {
     ArrayList<DialogPair> infoList = new ArrayList<DialogPair>();
 
-    public Functional(){
+    public InterativeForm(){
 
     }
 
