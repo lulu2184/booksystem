@@ -3,9 +3,10 @@ package frontend;
 import backend.user.User;
 import frontend.functionality.Login;
 import frontend.functionality.Register;
-import frontend.list.MainMenu;
-import frontend.list.ManageMenu;
-import frontend.list.UserMenu;
+import frontend.menu.MainMenu;
+import frontend.menu.ManageMenu;
+import frontend.menu.OrderMenu;
+import frontend.menu.UserMenu;
 
 import java.util.EmptyStackException;
 
@@ -47,6 +48,11 @@ public enum Page {
                 System.err.println(e.getMessage());
             }
             return true;
+        }
+    },
+    ORDER("start an order."){
+        boolean Do(PageController pc){
+            return OrderMenu.getInstance().display(pc);
         }
     };
   //  LOGIN,

@@ -1,4 +1,4 @@
-package frontend.list;
+package frontend.menu;
 
 import frontend.Page;
 import frontend.PageController;

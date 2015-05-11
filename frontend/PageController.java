@@ -13,7 +13,6 @@ public class PageController {
     private Page currentPage = Page.MAINMENU;
     private Stack<Page> page_stack;
     private User user = null;
-    private Order order = null;
 
     public PageController(){
         page_stack = new Stack<Page>();

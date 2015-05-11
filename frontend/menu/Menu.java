@@ -1,4 +1,4 @@
-package frontend.list;
+package frontend.menu;
 
 import frontend.Input;
 import frontend.Page;
@@ -39,6 +39,7 @@ abstract public class Menu {
             if (c >= 0 && c < menu.length){
                 pc.changeCurrentPage(menu[c]);
             }else if (c == menu.length){
+                prepareForExit();
                 result = pc.exitCurrentPage();
             }else{
                 System.out.println("Wrong number.");
@@ -56,6 +57,8 @@ abstract public class Menu {
         showText(menu);
         return transfer(pc);
     }
+
+    private void prepareForExit(){}
 
     abstract public String getMessage(PageController pc);
 }

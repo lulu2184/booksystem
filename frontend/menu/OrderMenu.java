@@ -1,5 +1,6 @@
-package frontend.list;
+package frontend.menu;
 
+import backend.order.Order;
 import frontend.Page;
 import frontend.PageController;
 
@@ -10,7 +11,7 @@ public class OrderMenu extends Menu {
 
     private static OrderMenu oneInstance = null;
 
-    public OrderMenu getInstance(){
+    public static OrderMenu getInstance(){
         if (oneInstance == null){
             oneInstance = new OrderMenu();
         }
@@ -25,5 +26,9 @@ public class OrderMenu extends Menu {
 
     public String getMessage(PageController pc){
         return message + pc.getUserName();
+    }
+
+    private void prepareForExit(){
+        Order.finishOrder();
     }
 }

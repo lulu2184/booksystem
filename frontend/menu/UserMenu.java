@@ -1,4 +1,4 @@
-package frontend.list;
+package frontend.menu;
 
 import frontend.Page;
 import frontend.PageController;
@@ -11,7 +11,7 @@ public class UserMenu extends Menu {
     private static UserMenu oneInstance = null;
 
     private UserMenu() {
-        menu = new Page[]{};
+        menu = new Page[]{Page.ORDER};
         message = "welcome, ";
         exitmessage = "logout";
     }
