@@ -23,7 +23,7 @@ abstract public class StringFieldCheck {
             return new CheckResult(false,"The length of " + field_name + " is not between "
                                         + Integer.toString(short_limit) + " and " + Integer.toString(long_limit));
         }
-        if (!textChecker.check(str)){
+        if (textChecker != null && !textChecker.check(str)){
             return createInvalidContentResult(textChecker.getMessage());
         }
         return new CheckResult(true,"");

@@ -1,7 +1,7 @@
 package backend.check.content;
 
 import backend.Connector;
-import backend.exception.informationException.InformationException;
+import backend.check.CheckResult;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,9 +16,9 @@ abstract public class InformationChecker {
 
     abstract protected String getSQLquery();
 
-    abstract protected boolean Analyze(ResultSet rs) throws SQLException, InformationException;
+    abstract protected CheckResult Analyze(ResultSet rs) throws SQLException;
 
-    public boolean check() throws SQLException, InformationException {
+    public CheckResult check() throws SQLException{
         String sql = getSQLquery();
         ResultSet rs = Connector.ExecuteQuery(sql);
         return Analyze(rs);

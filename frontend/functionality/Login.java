@@ -1,9 +1,8 @@
 package frontend.functionality;
 
+import backend.check.CheckResult;
 import backend.check.content.ValidUser;
-import backend.exception.informationException.InformationException;
 import backend.user.User;
-import backend.user.UserCheck;
 import frontend.Page;
 import frontend.PageController;
 
@@ -34,16 +33,18 @@ public class Login extends InterativeForm {
 
     protected void execute(PageController pc){
         try{
-            new ValidUser(username, password).check();
-            System.out.println("Successful to login.");
-            pc.changeCurrentPage(Page.USERMENU);
+            CheckResult result = new ValidUser(username, password).check();
+            if (result.isValid()) {
+                System.out.println("Successful to login.");
+                pc.changeCurrentPage(Page.USERMENU);
+            }else{
+                System.out.println("Unsuccessful to login. " + result.getMessage());
+            }
             pc.setUser(new User(username));
-        }catch (SQLException e){
+        }catch (SQLException e) {
             System.out.println("Unsuccessful to login. SQLException occurs.");
             System.err.println("Error message as follows:");
             System.err.println(e.getMessage());
-        }catch (InformationException e){
-            System.out.println("Unsuccessful to login. " + e.getMessage());
         }
     }
 

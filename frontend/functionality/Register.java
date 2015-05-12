@@ -1,9 +1,6 @@
 package frontend.functionality;
 
-import backend.user.NewUser;
-import backend.user.User;
-import backend.user.UserInfo;
-import frontend.Page;
+import backend.info.UserInfo;
 import frontend.PageController;
 
 /**
@@ -46,14 +43,17 @@ public class Register extends InterativeForm {
 //    }
 
     public void execute(PageController pc){
-        UserInfo info = new UserInfo(username, password, fullname, age, address, phone);
-        NewUser rs = NewUser.createNewUser(info);
-        if (rs == NewUser.VALID){
-            System.out.println("Successful to register.");
-            pc.changeCurrentPage(Page.USERMENU);
-            pc.setUser(new User(username));
-        } else{
-            System.out.println("Unsucessful to register." + rs.getMessage());
-        }
+//        UserInfo info = new UserInfo(username, password, fullname, age, address, phone);
+//        NewUser rs = NewUser.createNewUser(info);
+//        if (rs == NewUser.VALID){
+//            System.out.println("Successful to register.");
+//            pc.changeCurrentPage(Page.USERMENU);
+//            pc.setUser(new User(username));
+//        } else{
+//            System.out.println("Unsucessful to register." + rs.getMessage());
+//        }
+        UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
+
+
     }
 }

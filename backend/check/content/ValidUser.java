@@ -1,6 +1,6 @@
 package backend.check.content;
 
-import backend.exception.informationException.InformationException;
+import backend.check.CheckResult;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,14 +21,14 @@ public class ValidUser extends InformationChecker {
         return "SELECT * FROM User U WHERE U.username = '" + username + "';";
     }
 
-    protected boolean Analyze(ResultSet rs) throws SQLException, InformationException{
+    protected CheckResult Analyze(ResultSet rs) throws SQLException{
         if (!rs.next()){
-            throw new InformationException("User not exists");
+            return new CheckResult(false, "User not exists");
         }
         if (!password.equals(rs.getString("password"))){
-            throw new InformationException("User and password is not matched.");
+            return new CheckResult(false, "User and password is not matched.");
         }
-        return true;
+        return new CheckResult(true, "");
     }
 
 }
