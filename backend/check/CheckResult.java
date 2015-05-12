@@ -23,4 +23,8 @@ public class CheckResult {
     public boolean isValid(){
         return valid;
     }
+
+    public static CheckResult createSuccess(){
+        return new CheckResult(true, "");
+    }
 }

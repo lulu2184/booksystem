@@ -35,7 +35,7 @@ CREATE TABLE User(	username CHAR(20),
 					password CHAR(15),
 					fullname CHAR(20),
 					age INTEGER CHECK(age > 0),
-					addr CHAR(100),
+					address CHAR(100),
 					phone CHAR(15),
 					PRIMARY KEY(username));
 
