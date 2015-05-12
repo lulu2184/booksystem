@@ -1,9 +1,8 @@
 package frontend.menu;
 
-import backend.order.Order;
 import backend.session.User;
 import frontend.Page;
-import frontend.PageController;
+import backend.session.Order;
 
 /**
  * Created by LU on 15/5/10.

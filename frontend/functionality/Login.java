@@ -15,25 +15,34 @@ public class Login extends InterativeForm {
     protected String password;
 
     public Login() throws NoSuchFieldException{
+        action_name = "login";
         infoList.add(createDialogPair("please enter your username:", "username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
     }
 
-    protected void execute(PageController pc){
-        try{
-            CheckResult result = new ValidUser(username, password).check();
-            if (result.isValid()) {
-                System.out.println("Successful to login.");
-                backend.session.User.login(username);
-                pc.changeCurrentPage(Page.USERMENU);
-            }else{
-                System.out.println("Unsuccessful to login. " + result.getMessage());
-            }
-//            pc.setUser(new User(username));
-        }catch (SQLException e) {
-            System.out.println("Unsuccessful to login. SQLException occurs.");
-            System.err.println("Error message as follows:");
-            System.err.println(e.getMessage());
-        }
+    protected void successUpdate(PageController pc){
+        backend.session.User.login(username);
+        pc.changeCurrentPage(Page.USERMENU);
     }
+
+    protected CheckResult actions() throws SQLException{
+        return new ValidUser(username, password).check();
+    }
+
+//    protected void execute(PageController pc){
+//        try{
+//            CheckResult result = new ValidUser(username, password).check();
+//            if (result.isValid()) {
+//                System.out.println("Successful to login.");
+//                backend.session.User.login(username);
+//                pc.changeCurrentPage(Page.USERMENU);
+//            }else{
+//                System.out.println("Unsuccessful to login. " + result.getMessage());
+//            }
+//        }catch (SQLException e) {
+//            System.out.println("Unsuccessful to login. SQLException occurs.");
+//            System.err.println("Error message as follows:");
+//            System.err.println(e.getMessage());
+//        }
+//    }
 }

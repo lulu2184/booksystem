@@ -17,21 +17,17 @@ abstract public class Update {
     public CheckResult actions()throws SQLException{
         CheckResult result = formatCheck();
         if (result.isValid()){
-            result = conflictCheck();
+            result = contentCheck();
             if (result.isValid()) {
                 Connector.ExecuteInsertion(getSQL());
                 sessionUpdate();
-                return CheckResult.createSuccess();
-            }else {
-                return result;
             }
-        }else {
-            return result;
         }
+        return result;
     }
 
     abstract protected CheckResult formatCheck();
-    abstract protected CheckResult conflictCheck() throws SQLException;
+    abstract protected CheckResult contentCheck() throws SQLException;
     protected void sessionUpdate(){};
     abstract protected String getSQL();
 }

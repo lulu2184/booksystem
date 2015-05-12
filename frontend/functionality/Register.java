@@ -20,6 +20,7 @@ public class Register extends InterativeForm {
     String phone;
 
     public Register() throws NoSuchFieldException{
+        action_name = "register";
         infoList.add(createDialogPair("please enter your username;","username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
         infoList.add(createDialogPair("please enter your fullname:", "fullname"));
@@ -28,20 +29,29 @@ public class Register extends InterativeForm {
         infoList.add(createDialogPair("please enter your phone number:", "phone"));
     }
 
-    public void execute(PageController pc){
-        UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
-        try {
-            CheckResult result = new RegisterActions(userinfo).actions();
-            if (result.isValid()){
-                System.out.println("Successful to register.");
-                pc.changeCurrentPage(Page.USERMENU);
-            }else {
-                System.out.println("Unsuccessful to register. " + result.getMessage());
-            }
-        }catch (SQLException e){
-            System.out.println("Unsuccessful to register. SQL exception:");
-            System.err.println(e.getMessage());
-        }
-
+    protected void successUpdate(PageController pc){
+        pc.changeCurrentPage(Page.USERMENU);
     }
+
+    protected CheckResult actions()throws SQLException{
+        UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
+        return new RegisterActions(userinfo).actions();
+    }
+
+//    public void execute(PageController pc){
+//        UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
+//        try {
+//            CheckResult result = new RegisterActions(userinfo).actions();
+//            if (result.isValid()){
+//                System.out.println("Successful to register.");
+//                pc.changeCurrentPage(Page.USERMENU);
+//            }else {
+//                System.out.println("Unsuccessful to register. " + result.getMessage());
+//            }
+//        }catch (SQLException e){
+//            System.out.println("Unsuccessful to register. SQL exception:");
+//            System.err.println(e.getMessage());
+//        }
+//
+//    }
 }

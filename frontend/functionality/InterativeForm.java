@@ -1,10 +1,13 @@
 package frontend.functionality;
 
+import backend.check.CheckResult;
+import backend.check.content.ExistingCheck;
 import frontend.Input;
 import frontend.PageController;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 
@@ -13,6 +16,7 @@ import java.util.IllegalFormatCodePointException;
  */
 abstract class InterativeForm {
     ArrayList<DialogPair> infoList = new ArrayList<DialogPair>();
+    protected String action_name;
 
     public InterativeForm(){
 
@@ -22,7 +26,24 @@ abstract class InterativeForm {
         return new DialogPair(info, this.getClass().getDeclaredField(fieldName));
     }
 
-    protected abstract void execute(PageController pc);
+    abstract protected CheckResult actions() throws SQLException;
+    abstract protected void successUpdate(PageController pc);
+
+    protected void execute(PageController pc){
+        try{
+            CheckResult result = actions();
+            if (result.isValid()){
+                System.out.println("Successful to " + action_name + ".");
+                successUpdate(pc);
+            }else{
+                System.out.println("Unsuccessful to " + action_name + ". " + result.getMessage());
+            }
+        }catch (SQLException e){
+            System.out.println("Unsuccessful to " + action_name + ". SQLException occurs.");
+            System.err.println("Error message as follows:");
+            System.err.println(e.getMessage());
+        }
+    };
 
     protected void getInfo() throws IOException, NumberFormatException, IllegalAccessException{
         for (DialogPair d : infoList){

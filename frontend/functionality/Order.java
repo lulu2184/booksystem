@@ -5,18 +5,14 @@ import frontend.PageController;
 /**
  * Created by LU on 15/5/10.
  */
-public class Order extends InterativeForm {
-    private String username;
-    private String ISBN;
-    private Integer quantity;
+abstract public class Order extends InterativeForm {
+    protected String ISBN;
+    protected Integer quantity;
 
-    public Order(String _username)throws NoSuchFieldException{
-        username = _username;
+    public Order(String ISBN, int qty)throws NoSuchFieldException{
+        this.ISBN = ISBN;
+        this.quantity = qty;
         infoList.add(createDialogPair("please enter a book ISBN:", "ISBN"));
         infoList.add(createDialogPair("please enter the quantity of " + ISBN + " you want to order:", "quantity"));
-    }
-
-    protected void execute(PageController pc){
-
     }
 }
