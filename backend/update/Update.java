@@ -29,5 +29,5 @@ abstract public class Update {
     abstract protected CheckResult formatCheck();
     abstract protected CheckResult contentCheck() throws SQLException;
     protected void sessionUpdate(){};
-    abstract protected String getSQL();
+    abstract protected String getSQL() throws SQLException;
 }

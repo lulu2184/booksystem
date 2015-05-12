@@ -11,9 +11,8 @@ import java.sql.SQLException;
  */
 public class InsertInOrder extends Order {
 
-    public InsertInOrder(String ISBN, int qty) throws NoSuchFieldException{
-        super(ISBN, qty);
-        action_name = "insert a book into order.";
+    public InsertInOrder() throws NoSuchFieldException{
+
     }
 
     protected void successUpdate(PageController pc){

@@ -2,6 +2,7 @@ package frontend;
 
 import frontend.functionality.Login;
 import frontend.functionality.Register;
+import frontend.functionality.InsertInOrder;
 import frontend.menu.MainMenu;
 import frontend.menu.ManageMenu;
 import frontend.menu.OrderMenu;
@@ -53,9 +54,18 @@ public enum Page {
         boolean Do(PageController pc){
             return OrderMenu.getInstance().display(pc);
         }
+    },
+    INSERT_IN_ORDER("insert a book into current order."){
+        boolean Do(PageController pc) {
+            try{
+                new InsertInOrder().Do(pc);
+            }catch (NoSuchFieldException e){
+                System.err.println(e.getMessage());
+            }
+            return true;
+        }
     };
-  //  LOGIN,
-   // REGISTER;
+
     private final String message;
 
     Page(String message){

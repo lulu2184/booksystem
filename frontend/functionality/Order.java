@@ -9,9 +9,7 @@ abstract public class Order extends InterativeForm {
     protected String ISBN;
     protected Integer quantity;
 
-    public Order(String ISBN, int qty)throws NoSuchFieldException{
-        this.ISBN = ISBN;
-        this.quantity = qty;
+    public Order()throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter a book ISBN:", "ISBN"));
         infoList.add(createDialogPair("please enter the quantity of " + ISBN + " you want to order:", "quantity"));
     }

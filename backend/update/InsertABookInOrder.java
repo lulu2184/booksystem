@@ -25,7 +25,7 @@ public class InsertABookInOrder extends Update{
         return CheckResult.createSuccess();
     }
 
-    protected String getSQL(){
+    protected String getSQL() throws SQLException{
         return "INSERT INTO InOrder(username, ISBN, num) VALUES('" + Order.getOrderString() + "', '" + book + "', " + Integer.toString(qty) + ");";
     }
 
