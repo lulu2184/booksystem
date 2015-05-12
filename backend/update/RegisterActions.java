@@ -8,10 +8,10 @@ import backend.session.User;
 /**
  * Created by LU on 15/5/12.
  */
-public class Register extends Update{
+public class RegisterActions extends Update{
     private UserInfo info;
 
-    public Register(UserInfo info){
+    public RegisterActions(UserInfo info){
         this.info = info;
     }
 

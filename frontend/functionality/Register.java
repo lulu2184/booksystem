@@ -1,7 +1,12 @@
 package frontend.functionality;
 
+import backend.check.CheckResult;
 import backend.info.UserInfo;
+import backend.update.RegisterActions;
+import frontend.Page;
 import frontend.PageController;
+
+import java.sql.SQLException;
 
 /**
  * Created by LU on 15/5/4.
@@ -13,7 +18,6 @@ public class Register extends InterativeForm {
     Integer age;
     String address;
     String phone;
-    UserInfo information;
 
     public Register() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter your username;","username"));
@@ -24,36 +28,18 @@ public class Register extends InterativeForm {
         infoList.add(createDialogPair("please enter your phone number:", "phone"));
     }
 
-//    public boolean getInfo(){
-//        try {
-//            System.out.println("please enter the username:");
-//            username = Input.getLine();
-//            try{
-//                System.out.println("please enter the password:");
-//                password = Input.getLine();
-//            } catch (Exception e){
-//                System.out.println("Unable to read password, please try again.");
-//                return false;
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Unable to read username, please try again.");
-//            return false;
-//        }
-//        return true;
-//    }
-
     public void execute(PageController pc){
-//        UserInfo info = new UserInfo(username, password, fullname, age, address, phone);
-//        NewUser rs = NewUser.createNewUser(info);
-//        if (rs == NewUser.VALID){
-//            System.out.println("Successful to register.");
-//            pc.changeCurrentPage(Page.USERMENU);
-//            pc.setUser(new User(username));
-//        } else{
-//            System.out.println("Unsucessful to register." + rs.getMessage());
-//        }
         UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
-
+        try {
+            CheckResult result = new RegisterActions(userinfo).actions();
+            if (result.isValid()){
+                System.out.println("Successful to register.");
+                pc.changeCurrentPage(Page.USERMENU);
+            }
+        }catch (SQLException e){
+            System.out.println("Unsuccessful to register. SQL exception:");
+            System.err.println(e.getMessage());
+        }
 
     }
 }
