@@ -1,5 +1,6 @@
 package frontend;
 
+import frontend.functionality.InsertBook;
 import frontend.functionality.Login;
 import frontend.functionality.Register;
 import frontend.functionality.InsertInOrder;
@@ -64,6 +65,16 @@ public enum Page {
             }catch (NoSuchFieldException e){
                 System.err.println("No Such Field " + e.getMessage());
                 pc.exitCurrentPage();
+            }
+            return true;
+        }
+    },
+    CREATE_NEW_BOOK("insert a new book."){
+        boolean Do(PageController pc){
+            try{
+                new InsertBook().Do(pc);
+            }catch (NoSuchFieldException e){
+                System.err.println("No Such Field " + e.getMessage());
             }
             return true;
         }

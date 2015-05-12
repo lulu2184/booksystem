@@ -2,6 +2,7 @@ package frontend.functionality;
 
 import backend.check.CheckResult;
 import backend.info.UserInfo;
+import backend.session.User;
 import backend.update.RegisterActions;
 import frontend.Page;
 import frontend.PageController;
@@ -31,6 +32,7 @@ public class Register extends InterativeForm {
 
     protected void successUpdate(PageController pc){
         pc.changeCurrentPage(Page.USERMENU);
+        User.login(username);
     }
 
     protected CheckResult actions()throws SQLException{

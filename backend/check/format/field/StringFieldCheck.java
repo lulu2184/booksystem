@@ -7,15 +7,23 @@ import backend.check.CheckResult;
 /**
  * Created by LU on 15/5/11.
  */
-abstract public class StringFieldCheck {
+public class StringFieldCheck {
     protected String str;
     protected String field_name;
     protected StringContentChecker textChecker;
     protected int long_limit;
     protected int short_limit;
 
-    public StringFieldCheck(){
+    protected StringFieldCheck(){
 
+    }
+
+    public StringFieldCheck(String str, String field_name,int short_limit, int long_limit, StringContentChecker textChecker){
+        this.str = str;
+        this.field_name = field_name;
+        this.long_limit = long_limit;
+        this.short_limit = short_limit;
+        this.textChecker = textChecker;
     }
 
     public CheckResult check(){

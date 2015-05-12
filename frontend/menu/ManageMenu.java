@@ -18,7 +18,7 @@ public class ManageMenu extends Menu {
     }
 
     private ManageMenu(){
-        menu = new Page[]{Page.LOGIN};
+        menu = new Page[]{Page.CREATE_NEW_BOOK};
         message = "  manage page";
         exitmessage = "exit manager menu.";
     }

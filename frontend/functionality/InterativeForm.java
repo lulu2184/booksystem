@@ -27,7 +27,7 @@ abstract class InterativeForm {
     }
 
     abstract protected CheckResult actions() throws SQLException;
-    abstract protected void successUpdate(PageController pc);
+    protected void successUpdate(PageController pc){};
 
     protected void execute(PageController pc){
         try{
@@ -51,6 +51,9 @@ abstract class InterativeForm {
             String info = Input.getLine();
             if (d.attribute.getType() == Integer.class){
                 Integer number = Integer.parseInt(info);
+                d.attribute.set(this, number);
+            }else if (d.attribute.getType() == double.class){
+                double number = Double.parseDouble(info);
                 d.attribute.set(this, number);
             }else{
                 d.attribute.set(this, info);
