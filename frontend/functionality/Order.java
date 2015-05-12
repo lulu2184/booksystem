@@ -1,6 +1,5 @@
 package frontend.functionality;
 
-import backend.user.User;
 import frontend.PageController;
 
 /**

@@ -1,6 +1,5 @@
 package frontend;
 
-import backend.user.User;
 import frontend.functionality.Login;
 import frontend.functionality.Register;
 import frontend.menu.MainMenu;
@@ -58,7 +57,6 @@ public enum Page {
   //  LOGIN,
    // REGISTER;
     private final String message;
-    private User user = null;
 
     Page(String message){
         this.message = message;

@@ -2,7 +2,6 @@ package frontend.functionality;
 
 import backend.check.CheckResult;
 import backend.check.content.ValidUser;
-import backend.user.User;
 import frontend.Page;
 import frontend.PageController;
 
