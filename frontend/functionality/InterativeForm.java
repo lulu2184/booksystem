@@ -23,7 +23,7 @@ abstract class InterativeForm {
     }
 
     protected DialogPair createDialogPair(String info, String fieldName) throws NoSuchFieldException{
-        return new DialogPair(info, this.getClass().getDeclaredField(fieldName));
+        return new DialogPair(info, this.getClass().getField(fieldName));
     }
 
     abstract protected CheckResult actions() throws SQLException;

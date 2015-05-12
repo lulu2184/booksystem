@@ -25,4 +25,8 @@ public class UserInfo {
         phone = _phone;
     }
 
+    public String getInsertFormat(){
+        return "'" + username + "', '" + password + "', '" + fullname + "', " + age + ", '" + address + "', '" + phone + "'";
+    }
+
 }

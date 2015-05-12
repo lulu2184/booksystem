@@ -11,17 +11,18 @@ public class Controller {
         try{
             Connector.getInstance();
             System.out.println("Database connection established.");
+            System.out.println("           Database book manage system");
+            new PageController().Do();
         }catch (Exception e){
             System.out.println("Cannot connect to database server.");
-            return;
         }
-        System.out.println("           Database book manage system");
-        new PageController().Do();
-        try{
-            Connector.close();
-            System.out.println("Database connection terminated.");
-        }catch (Exception e){
-            System.out.println("Cannot terminate the connection.");
+        finally{
+            try {
+                Connector.close();
+                System.out.println("Database connection terminated.");
+            } catch (Exception e) {
+                System.out.println("Cannot terminate the connection.");
+            }
         }
     }
 

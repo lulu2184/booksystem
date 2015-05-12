@@ -2,6 +2,7 @@ package backend.update;
 
 import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
+import backend.query.NumberOfBookQuery;
 import backend.session.Order;
 
 import java.sql.SQLException;
@@ -19,14 +20,16 @@ public class InsertABookInOrder extends Update{
     }
 
     protected CheckResult formatCheck(){
-        if (qty < 0){
-            return CheckResult.createFail("The quantity is not valid number.");
+        if (qty < 1){
+            return CheckResult.createFail("This quantity is not valid.");
         }
         return CheckResult.createSuccess();
     }
 
-    protected String getSQL() throws SQLException{
-        return "INSERT INTO InOrder(username, ISBN, num) VALUES('" + Order.getOrderString() + "', '" + book + "', " + Integer.toString(qty) + ");";
+    protected void getSQLList() throws SQLException{
+        String sql = "INSERT INTO InOrder(orderid, ISBN, num) VALUES('" + Order.getOrderString() + "', '" + book + "', " + Integer.toString(qty) + ");";
+        sqlList.add(sql);
+        sql = 
     }
 
     protected CheckResult contentCheck()throws SQLException{
@@ -35,6 +38,9 @@ public class InsertABookInOrder extends Update{
         }
         if (!ExistingCheck.check("Book", "ISBN", book)){
             return CheckResult.createFail("Book not exists.");
+        }
+        if (NumberOfBookQuery.query(book) < qty){
+            return CheckResult.createFail("Not enough book or no such book.");
         }
         return CheckResult.createSuccess();
     }

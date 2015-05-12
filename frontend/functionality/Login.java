@@ -11,38 +11,21 @@ import java.sql.SQLException;
  * Created by LU on 15/5/4.
  */
 public class Login extends InterativeForm {
-    protected String username;
-    protected String password;
+    public String username;
+    public String password;
 
-    public Login() throws NoSuchFieldException{
+    public Login() throws NoSuchFieldException {
         action_name = "login";
         infoList.add(createDialogPair("please enter your username:", "username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
     }
 
-    protected void successUpdate(PageController pc){
+    protected void successUpdate(PageController pc) {
         backend.session.User.login(username);
         pc.changeCurrentPage(Page.USERMENU);
     }
 
-    protected CheckResult actions() throws SQLException{
+    protected CheckResult actions() throws SQLException {
         return new ValidUser(username, password).check();
     }
-
-//    protected void execute(PageController pc){
-//        try{
-//            CheckResult result = new ValidUser(username, password).check();
-//            if (result.isValid()) {
-//                System.out.println("Successful to login.");
-//                backend.session.User.login(username);
-//                pc.changeCurrentPage(Page.USERMENU);
-//            }else{
-//                System.out.println("Unsuccessful to login. " + result.getMessage());
-//            }
-//        }catch (SQLException e) {
-//            System.out.println("Unsuccessful to login. SQLException occurs.");
-//            System.err.println("Error message as follows:");
-//            System.err.println(e.getMessage());
-//        }
-//    }
 }

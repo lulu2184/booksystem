@@ -12,12 +12,12 @@ import java.sql.SQLException;
  * Created by LU on 15/5/4.
  */
 public class Register extends InterativeForm {
-    String username;
-    String password;
-    String fullname;
-    Integer age;
-    String address;
-    String phone;
+    public String username;
+    public String password;
+    public String fullname;
+    public Integer age;
+    public String address;
+    public String phone;
 
     public Register() throws NoSuchFieldException{
         action_name = "register";
@@ -37,21 +37,4 @@ public class Register extends InterativeForm {
         UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
         return new RegisterActions(userinfo).actions();
     }
-
-//    public void execute(PageController pc){
-//        UserInfo userinfo = new UserInfo(username, password, fullname, age, address, phone);
-//        try {
-//            CheckResult result = new RegisterActions(userinfo).actions();
-//            if (result.isValid()){
-//                System.out.println("Successful to register.");
-//                pc.changeCurrentPage(Page.USERMENU);
-//            }else {
-//                System.out.println("Unsuccessful to register. " + result.getMessage());
-//            }
-//        }catch (SQLException e){
-//            System.out.println("Unsuccessful to register. SQL exception:");
-//            System.err.println(e.getMessage());
-//        }
-//
-//    }
 }

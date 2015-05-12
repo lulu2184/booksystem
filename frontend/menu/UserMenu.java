@@ -2,7 +2,6 @@ package frontend.menu;
 
 import backend.session.User;
 import frontend.Page;
-import frontend.PageController;
 
 /**
  * Created by LU on 15/5/4.
@@ -12,7 +11,7 @@ public class UserMenu extends Menu {
     private static UserMenu oneInstance = null;
 
     private UserMenu() {
-        menu = new Page[]{Page.ORDER};
+        menu = new Page[]{Page.ORDERMENU};
         message = "welcome, ";
         exitmessage = "logout";
     }

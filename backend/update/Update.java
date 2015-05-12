@@ -5,13 +5,15 @@ import backend.check.CheckResult;
 import backend.check.format.FormatChecker;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by LU on 15/5/12.
  */
 abstract public class Update {
-    public Update(){
+    ArrayList <String> sqlList = new ArrayList<String>();
 
+    public Update(){
     }
 
     public CheckResult actions()throws SQLException{
@@ -19,8 +21,10 @@ abstract public class Update {
         if (result.isValid()){
             result = contentCheck();
             if (result.isValid()) {
-                Connector.ExecuteInsertion(getSQL());
-                sessionUpdate();
+                for (String sql : sqlList) {
+                    Connector.ExecuteInsertion(sql);
+                    sessionUpdate();
+                }
             }
         }
         return result;
@@ -29,5 +33,13 @@ abstract public class Update {
     abstract protected CheckResult formatCheck();
     abstract protected CheckResult contentCheck() throws SQLException;
     protected void sessionUpdate(){};
-    abstract protected String getSQL() throws SQLException;
+    abstract protected void getSQLList() throws SQLException;
+
+    protected String getInsertStatement(String table, String columns, String values){
+        return "INSERT INTO " + table + "(" + columns + ") VALUES(" + values +");";
+    }
+
+    protected String addQuotes(String str){
+        return "'" + str + "'";
+    }
 }

@@ -18,10 +18,9 @@ public class RegisterActions extends Update{
         this.info = info;
     }
 
-    protected String getSQL(){
-        return "INSERT INTO User(username, password, fullname, age, address, phone) VALUES('" + info.username + "', '"
-                + info.password + "', '" + info.fullname + "', " + info.age.toString() + ", '" + info.address + "', '"
-                + info.phone + "');";
+    protected void getSQLList(){
+        String sql = getInsertStatement("User", "username, password, fullname, age, address, phone", info.getInsertFormat());
+        sqlList.add(sql);
     }
 
     protected CheckResult formatCheck(){

@@ -35,7 +35,8 @@ public enum Page {
             try {
                 new Login().Do(pc);
             } catch (NoSuchFieldException e) {
-                System.err.println(e.getMessage());
+                System.err.println("No Such Field " + e.getMessage());
+                pc.exitCurrentPage();
             }
             return true;
         }
@@ -45,12 +46,13 @@ public enum Page {
             try{
                 new Register().Do(pc);
             } catch (NoSuchFieldException e){
-                System.err.println(e.getMessage());
+                System.err.println("No Such Field " + e.getMessage());
+                pc.exitCurrentPage();
             }
             return true;
         }
     },
-    ORDER("start an order."){
+    ORDERMENU("start an order."){
         boolean Do(PageController pc){
             return OrderMenu.getInstance().display(pc);
         }
@@ -60,7 +62,8 @@ public enum Page {
             try{
                 new InsertInOrder().Do(pc);
             }catch (NoSuchFieldException e){
-                System.err.println(e.getMessage());
+                System.err.println("No Such Field " + e.getMessage());
+                pc.exitCurrentPage();
             }
             return true;
         }

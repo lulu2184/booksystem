@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class InsertInOrder extends Order {
 
     public InsertInOrder() throws NoSuchFieldException{
-
+        action_name = "insert a book into order";
     }
 
     protected void successUpdate(PageController pc){

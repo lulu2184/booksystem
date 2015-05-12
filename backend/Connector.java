@@ -51,4 +51,12 @@ public class Connector {
 
         }
     }
+
+    public static ResultSet selectStatement(String column, String from, String where)throws SQLException{
+        return ExecuteQuery("SELECT " + column + " FROM " + from + " WHERE " + where + ";");
+    }
+
+    public static void insertStatement(String table, String column, String values) throws SQLException{
+        ExecuteQuery("INSERT INTO " + table + "(" + column + ") VALUES(" + values +");");
+    }
 }
