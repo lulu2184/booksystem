@@ -29,7 +29,8 @@ public class InsertABookInOrder extends Update{
     protected void getSQLList() throws SQLException{
         String sql = "INSERT INTO InOrder(orderid, ISBN, num) VALUES('" + Order.getOrderString() + "', '" + book + "', " + Integer.toString(qty) + ");";
         sqlList.add(sql);
-        sql = 
+        sql = "UPDATE Book SET inum = inum - " + Integer.toString(qty) + " WHERE ISBN = '" + book + "';";
+        sqlList.add(sql);
     }
 
     protected CheckResult contentCheck()throws SQLException{

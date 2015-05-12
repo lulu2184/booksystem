@@ -28,7 +28,7 @@ public class OrderMenu extends Menu {
         return message + User.getUsername();
     }
 
-    private void prepareForExit(){
+    protected void prepareForExit(){
         Order.finishOrder();
     }
 }

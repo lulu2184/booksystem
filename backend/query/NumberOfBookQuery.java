@@ -11,10 +11,10 @@ import java.sql.SQLException;
 public class NumberOfBookQuery {
 
     public static int query(String book)throws SQLException{
-        ResultSet rs = Connector.selectStatement("*", "Book", "ISBN = " + book);
+        ResultSet rs = Connector.selectStatement("*", "Book", "ISBN = '" + book + "'");
         if (!rs.next()){
             return 0;
         }
-        return rs.getInt("num");
+        return rs.getInt("inum");
     }
 }

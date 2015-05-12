@@ -20,6 +20,7 @@ abstract public class Update {
         CheckResult result = formatCheck();
         if (result.isValid()){
             result = contentCheck();
+            getSQLList();
             if (result.isValid()) {
                 for (String sql : sqlList) {
                     Connector.ExecuteInsertion(sql);
