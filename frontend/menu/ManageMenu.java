@@ -23,7 +23,7 @@ public class ManageMenu extends Menu {
         exitmessage = "exit manager menu.";
     }
 
-    public String getMessage(PageController pc){
+    public String getMessage(){
         return message;
     }
 }

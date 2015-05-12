@@ -27,4 +27,8 @@ public class CheckResult {
     public static CheckResult createSuccess(){
         return new CheckResult(true, "");
     }
+
+    public static CheckResult createFail(String message){
+        return new CheckResult(false, message);
+    }
 }

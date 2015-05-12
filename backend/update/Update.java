@@ -15,17 +15,23 @@ abstract public class Update {
     }
 
     public CheckResult actions()throws SQLException{
-        CheckResult result = check();
+        CheckResult result = formatCheck();
         if (result.isValid()){
-            Connector.ExecuteInsertion(getSQL());
-            sessionUpdate();
-            return CheckResult.createSuccess();
+            result = conflictCheck();
+            if (result.isValid()) {
+                Connector.ExecuteInsertion(getSQL());
+                sessionUpdate();
+                return CheckResult.createSuccess();
+            }else {
+                return result;
+            }
         }else {
             return result;
         }
     }
 
-    abstract protected CheckResult check();
+    abstract protected CheckResult formatCheck();
+    abstract protected CheckResult conflictCheck() throws SQLException;
     protected void sessionUpdate(){};
     abstract protected String getSQL();
 }

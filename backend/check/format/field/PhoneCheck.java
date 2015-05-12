@@ -11,5 +11,6 @@ public class PhoneCheck extends StringFieldCheck{
         long_limit = 15;
         short_limit = 5;
         textChecker = new DigitChecker();
+        field_name = "phone";
     }
 }

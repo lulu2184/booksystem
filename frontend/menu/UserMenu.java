@@ -1,5 +1,6 @@
 package frontend.menu;
 
+import backend.session.User;
 import frontend.Page;
 import frontend.PageController;
 
@@ -23,7 +24,7 @@ public class UserMenu extends Menu {
         return oneInstance;
     }
 
-    public String getMessage(PageController pc) {
-        return this.message + pc.getUserName();
+    public String getMessage(){
+        return this.message + User.getUsername();
     }
 }

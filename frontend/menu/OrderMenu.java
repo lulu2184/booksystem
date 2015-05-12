@@ -1,6 +1,7 @@
 package frontend.menu;
 
 import backend.order.Order;
+import backend.session.User;
 import frontend.Page;
 import frontend.PageController;
 
@@ -24,8 +25,8 @@ public class OrderMenu extends Menu {
         exitmessage = "finish this order.";
     }
 
-    public String getMessage(PageController pc){
-        return message + pc.getUserName();
+    public String getMessage(){
+        return message + User.getUsername();
     }
 
     private void prepareForExit(){

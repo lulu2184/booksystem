@@ -35,6 +35,8 @@ public class Register extends InterativeForm {
             if (result.isValid()){
                 System.out.println("Successful to register.");
                 pc.changeCurrentPage(Page.USERMENU);
+            }else {
+                System.out.println("Unsuccessful to register. " + result.getMessage());
             }
         }catch (SQLException e){
             System.out.println("Unsuccessful to register. SQL exception:");

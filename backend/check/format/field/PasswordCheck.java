@@ -13,5 +13,6 @@ public class PasswordCheck extends StringFieldCheck{
         short_limit = 6;
         long_limit = 15;
         this.textChecker = new TextChecker();
+        field_name = "password";
     }
 }

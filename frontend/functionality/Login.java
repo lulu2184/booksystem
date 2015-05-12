@@ -25,11 +25,12 @@ public class Login extends InterativeForm {
             CheckResult result = new ValidUser(username, password).check();
             if (result.isValid()) {
                 System.out.println("Successful to login.");
+                backend.session.User.login(username);
                 pc.changeCurrentPage(Page.USERMENU);
             }else{
                 System.out.println("Unsuccessful to login. " + result.getMessage());
             }
-            pc.setUser(new User(username));
+//            pc.setUser(new User(username));
         }catch (SQLException e) {
             System.out.println("Unsuccessful to login. SQLException occurs.");
             System.err.println("Error message as follows:");

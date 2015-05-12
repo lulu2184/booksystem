@@ -9,5 +9,6 @@ public class AddressCheck extends StringFieldCheck{
         long_limit = 100;
         short_limit = 5;
         textChecker = null;
+        field_name = "address";
     }
 }

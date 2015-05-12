@@ -23,7 +23,7 @@ public class MainMenu extends Menu {
         exitmessage = "exit this system.";
     }
 
-    public String getMessage(PageController pc){
+    public String getMessage(){
         return message;
     }
 }

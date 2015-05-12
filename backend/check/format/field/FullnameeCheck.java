@@ -13,6 +13,7 @@ public class FullnameeCheck extends StringFieldCheck{
         long_limit = 20;
         short_limit = 4;
         this.textChecker = new LetterChecker();
+        field_name = "fullname";
     }
 
 }

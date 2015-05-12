@@ -1,9 +1,12 @@
 package backend.update;
 
 import backend.check.CheckResult;
+import backend.check.content.ConflictCheck;
 import backend.check.format.ValidNewUser;
 import backend.info.UserInfo;
 import backend.session.User;
+
+import java.sql.SQLException;
 
 /**
  * Created by LU on 15/5/12.
@@ -21,8 +24,12 @@ public class RegisterActions extends Update{
                 + info.phone + "');";
     }
 
-    protected CheckResult check(){
+    protected CheckResult formatCheck(){
         return ValidNewUser.check(info);
+    }
+
+    protected CheckResult conflictCheck()throws SQLException{
+        return ConflictCheck.check("User", "username", info.username);
     }
 
     protected void sessionUpdate(){
