@@ -55,6 +55,9 @@ abstract class InterativeForm {
             }else if (d.attribute.getType() == double.class){
                 double number = Double.parseDouble(info);
                 d.attribute.set(this, number);
+            }else if (d.attribute.getType() == long.class){
+                long number = Long.parseLong(info);
+                d.attribute.set(this, number);
             }else{
                 d.attribute.set(this, info);
             }

@@ -33,4 +33,9 @@ public class ExistingCheck {
         String sql = "SELECT * FROM " + table + " WHERE " + field1 + " = " + value1 + " AND " +field2 + " = " + value2 + ";";
         return execute(sql);
     }
+
+    public static boolean checkLong(String table, String field, long num) throws SQLException{
+        String sql = "SELECT * FROM " + talbe + " WHERE " + field + " = " + Long.toString(num) + ";";
+        return execute(sql);
+    }
 }
