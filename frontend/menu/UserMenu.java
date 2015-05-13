@@ -11,7 +11,7 @@ public class UserMenu extends Menu {
     private static UserMenu oneInstance = null;
 
     private UserMenu() {
-        menu = new Page[]{Page.ORDERMENU, Page.GIVE_FEEDBACK, Page.RATE_FOR_FEEDBACK};
+        menu = new Page[]{Page.ORDERMENU, Page.GIVE_FEEDBACK, Page.RATE_FOR_FEEDBACK, Page.DECLARE_USER};
         message = "welcome, ";
         exitmessage = "logout";
     }

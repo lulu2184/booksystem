@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.update.DeclareUser;
 import frontend.functionality.*;
 import frontend.menu.MainMenu;
 import frontend.menu.ManageMenu;
@@ -84,7 +85,7 @@ public enum Page {
             return true;
         }
     },
-    GIVE_FEEDBACK("give feedback to a book"){
+    GIVE_FEEDBACK("give feedback to a book."){
         boolean Do(PageController pc){
             try{
                 new GiveFeedback().Do(pc);
@@ -94,10 +95,20 @@ public enum Page {
             return true;
         }
     },
-    RATE_FOR_FEEDBACK("rate for a feedback"){
+    RATE_FOR_FEEDBACK("rate for a feedback."){
         boolean Do(PageController pc){
             try{
                 new Rate().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
+    },
+    DECLARE_USER("give trust number to a user."){
+        boolean Do(PageController pc){
+            try{
+                new GiveTrustNumber().Do(pc);
             }catch (NoSuchFieldException e){
                 noSuchFieldActions(pc, e);
             }
