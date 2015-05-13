@@ -31,7 +31,9 @@ public class RateFeedback extends Update{
         if (!ExistingCheck.checkLong("Feedback", "fid", fid)){
             return CheckResult.createFail("Feedback not exits.");
         }
-        if (ExistingCheck.checkPair("Rate", "username", addQuotes(username), "fid", Long.toString(fid)));
+        if (ExistingCheck.checkPair("Rate", "username", addQuotes(username), "fid", Long.toString(fid))){
+            return CheckResult.createFail("You have already rate for this feedback.");
+        }
         return CheckResult.createSuccess();
     }
 

@@ -30,12 +30,12 @@ public class ExistingCheck {
     }
 
     public static boolean checkPair(String table, String field1, String value1, String field2, String value2) throws SQLException{
-        String sql = "SELECT * FROM " + table + " WHERE " + field1 + " = " + value1 + " AND " +field2 + " = " + value2 + ";";
+        String sql = "SELECT * FROM " + table + " WHERE " + field1 + " = " + value1 + " AND " + field2 + " = " + value2 + ";";
         return execute(sql);
     }
 
     public static boolean checkLong(String table, String field, long num) throws SQLException{
-        String sql = "SELECT * FROM " + talbe + " WHERE " + field + " = " + Long.toString(num) + ";";
+        String sql = "SELECT * FROM " + table + " WHERE " + field + " = " + Long.toString(num) + ";";
         return execute(sql);
     }
 }

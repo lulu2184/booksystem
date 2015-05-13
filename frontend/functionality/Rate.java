@@ -10,9 +10,10 @@ import java.sql.SQLException;
  */
 public class Rate extends InterativeForm{
     public long fid;
-    public int score;
+    public Integer score;
 
     public Rate() throws NoSuchFieldException{
+        action_name = "rate for a feedback";
         infoList.add(createDialogPair("please enter the ID of feedback you want to rate for:", "fid"));
         infoList.add(createDialogPair("please enter the numerical score you want to give to this feedback:", "score"));
     }

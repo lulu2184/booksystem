@@ -93,6 +93,16 @@ public enum Page {
             }
             return true;
         }
+    },
+    RATE_FOR_FEEDBACK("rate for a feedback"){
+        boolean Do(PageController pc){
+            try{
+                new Rate().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
     };
 
     private final String message;

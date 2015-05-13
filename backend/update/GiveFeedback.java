@@ -53,9 +53,9 @@ public class GiveFeedback extends Update{
     }
 
     protected void getSQLList(){
-        String sql = getInsertStatement("Feedback", "fid, propose_date, score, username, content",
+        String sql = getInsertStatement("Feedback", "fid, propose_date, score, ISBN, username, content",
                                     Long.toString(fid) + ", " + addQuotes(dateformat.format(date)) + ", " + Integer.toString(score)
-                                    + ", " + addQuotes(username) + ", " + addQuotes(content));
+                                    + ", " + addQuotes(book) + ", " + addQuotes(username) + ", " + addQuotes(content));
         sqlList.add(sql);
     }
 }
