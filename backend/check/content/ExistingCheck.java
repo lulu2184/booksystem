@@ -28,4 +28,9 @@ public class ExistingCheck {
         String sql = "SELECT * FROM " + table + " T" + " WHERE " + "T." + field + "=" + value + ";";
         return execute(sql);
     }
+
+    public static boolean checkPair(String table, String field1, String value1, String field2, String value2) throws SQLException{
+        String sql = "SELECT * FROM " + table + " WHERE " + field1 + " = " + value1 + " AND " +field2 + " = " + value2 + ";";
+        return execute(sql);
+    }
 }

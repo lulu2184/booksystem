@@ -83,6 +83,16 @@ public enum Page {
             }
             return true;
         }
+    },
+    GIVE_FEEDBACK("give feedback to a book"){
+        boolean Do(PageController pc){
+            try{
+                new GiveFeedback().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
     };
 
     private final String message;

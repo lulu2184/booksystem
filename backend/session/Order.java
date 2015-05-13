@@ -1,6 +1,7 @@
 package backend.session;
 
 import backend.Connector;
+import backend.GenerateNewID;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -12,8 +13,6 @@ import java.text.SimpleDateFormat;
 public class Order {
     private long orderid;
     private static Order oneInstance = null;
-    private final static long milis_limit = 1000L;
-    private static long counter = 0;
     private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
 
     private Order(long orderid){
@@ -47,8 +46,7 @@ public class Order {
 
     private static long createNewOrderID() throws SQLException{
         Date date = new Date();
-        long orderid = date.getTime() * milis_limit + counter;
-        counter = (counter + 1) % milis_limit;
+        long orderid = GenerateNewID.generate();
         String sql = "INSERT INTO Orders(orderid, order_date, username) VALUES(" + Long.toString(orderid) + ", '"
                 + dateformat.format(date) + "', '" + User.getUsername() + "');";
         Connector.ExecuteInsertion(sql);

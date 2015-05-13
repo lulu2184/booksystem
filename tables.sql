@@ -39,13 +39,14 @@ CREATE TABLE User(	username CHAR(20),
 					phone CHAR(15),
 					PRIMARY KEY(username));
 
-CREATE TABLE Feedback(	fid INTEGER,
+CREATE TABLE Feedback(	fid BIGINT,
 						propose_date DATETIME,
 						score SMALLINT CHECK(score >=0 AND score <= 10),
 						ISBN CHAR(40),
 						username CHAR(20),
 						content VARCHAR(2000),
 						PRIMARY KEY(fid),
+						UNIQUE (username, ISBN),
 						FOREIGN KEY(ISBN) REFERENCES Book(ISBN),
 						FOREIGN KEY(username) REFERENCES User(username));
 
@@ -73,7 +74,7 @@ CREATE TABLE InOrder(	orderid BIGINT,
 						FOREIGN KEY(orderid) REFERENCES Orders(orderid),
 						FOREIGN KEY(ISBN) REFERENCES Book(ISBN));
 
-CREATE TABLE Rate(	fid INTEGER,
+CREATE TABLE Rate(	fid BIGINT,
 					username CHAR(20),
 					rate_num SMALLINT CHECK(rate_num >=0 AND rate_num <= 2),
 					PRIMARY KEY(fid, username),
