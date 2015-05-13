@@ -27,8 +27,7 @@ public class ValidNewBook extends FormatChecker{
         if (!result.isValid()){
             return result;
         }
-        result = new StringFieldCheck(info.title, "title", shortest_title, longest_title, new TextChecker()).check();
-        if (!result.isValid()){
+        if (info.title.length() < shortest_title || info.title.length() > longest_title){
             return result;
         }
         result = new StringFieldCheck(info.format, "format", shortest_format, longest_format, new LetterChecker()).check();
