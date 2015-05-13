@@ -33,11 +33,15 @@ abstract public class Update {
 
     abstract protected CheckResult formatCheck();
     abstract protected CheckResult contentCheck() throws SQLException;
-    protected void sessionUpdate(){};
+    protected void sessionUpdate(){}
     abstract protected void getSQLList() throws SQLException;
 
     protected String getInsertStatement(String table, String columns, String values){
         return "INSERT INTO " + table + "(" + columns + ") VALUES(" + values +");";
+    }
+
+    protected String getUpdateStatement(String table, String update, String condition){
+        return "UPDATE " + table + " SET " + update + " WHERE " + condition + ";";
     }
 
     protected String addQuotes(String str){

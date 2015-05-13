@@ -27,6 +27,9 @@ public class CreateNewBook extends Update{
         if (ExistingCheck.check("Book", "ISBN", info.ISBN)){
             return CheckResult.createFail("This book is already exists.");
         }
+        if (!ExistingCheck.check("Publisher", "pname", info.pname)){
+            return CheckResult.createFail("This publisher not exists.");
+        }
         return CheckResult.createSuccess();
     }
 

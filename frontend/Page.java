@@ -1,14 +1,12 @@
 package frontend;
 
-import frontend.functionality.InsertBook;
-import frontend.functionality.Login;
-import frontend.functionality.Register;
-import frontend.functionality.InsertInOrder;
+import frontend.functionality.*;
 import frontend.menu.MainMenu;
 import frontend.menu.ManageMenu;
 import frontend.menu.OrderMenu;
 import frontend.menu.UserMenu;
 
+import javax.print.attribute.standard.Copies;
 import java.util.EmptyStackException;
 
 /**
@@ -36,8 +34,7 @@ public enum Page {
             try {
                 new Login().Do(pc);
             } catch (NoSuchFieldException e) {
-                System.err.println("No Such Field " + e.getMessage());
-                pc.exitCurrentPage();
+                noSuchFieldActions(pc, e);
             }
             return true;
         }
@@ -47,8 +44,7 @@ public enum Page {
             try{
                 new Register().Do(pc);
             } catch (NoSuchFieldException e){
-                System.err.println("No Such Field " + e.getMessage());
-                pc.exitCurrentPage();
+                noSuchFieldActions(pc, e);
             }
             return true;
         }
@@ -63,8 +59,7 @@ public enum Page {
             try{
                 new InsertInOrder().Do(pc);
             }catch (NoSuchFieldException e){
-                System.err.println("No Such Field " + e.getMessage());
-                pc.exitCurrentPage();
+                noSuchFieldActions(pc, e);
             }
             return true;
         }
@@ -74,13 +69,28 @@ public enum Page {
             try{
                 new InsertBook().Do(pc);
             }catch (NoSuchFieldException e){
-                System.err.println("No Such Field " + e.getMessage());
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
+    },
+    NEW_COPIES_ARRIVAL("arrival of more book copies."){
+        boolean Do(PageController pc){
+            try{
+                new CopiesArrival().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
             }
             return true;
         }
     };
 
     private final String message;
+
+    protected void noSuchFieldActions(PageController pc, NoSuchFieldException e){
+        System.err.println("No Such Field " + e.getMessage());
+        pc.exitCurrentPage();
+    }
 
     Page(String message){
         this.message = message;
