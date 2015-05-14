@@ -1,5 +1,9 @@
 package backend.query;
 
+import backend.check.content.ExistingCheck;
+
+import java.sql.SQLException;
+
 /**
  * Created by LU on 15/5/13.
  */
@@ -13,7 +17,26 @@ public class UsefulFeedback extends Query{
         this.number = number;
         result.setFieldsName(field_name);
         column_name = new String[]{"fid", "avg(score)", "username", "date", "content"};
+    }
 
+    protected void getSQL(){
+        sql = "SELECT TOP " + number.toString() + " F.fid, avg(R.rate_num), F.username, F.date, F.content "
+                + "FROM Rate R, Feedback F"
+                + "WHERE R.fid = F.fid AND F.ISBN = '" + book + "'"
+                + "GROUP BY F.fid"
+                + "ORDEY BY avg(R.rate_num) DESC;";
+    }
+
+    protected boolean check()throws SQLException{
+        if (number < 0){
+            result.setUnvalid("the number N should be a positive integer.");
+            return false;
+        }
+        if (!ExistingCheck.check("Book", "ISBN", book)){
+            result.setUnvalid("not a existing book.");
+            return false;
+        }
+        return true;
     }
 
 }

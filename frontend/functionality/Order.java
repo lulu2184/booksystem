@@ -5,7 +5,7 @@ import frontend.PageController;
 /**
  * Created by LU on 15/5/10.
  */
-abstract public class Order extends InterativeForm {
+abstract public class Order extends Update{
     public String ISBN;
     public Integer quantity;
 

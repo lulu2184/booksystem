@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/13.
  */
-public class GiveTrustNumber extends InterativeForm{
+public class GiveTrustNumber extends Update{
     public String username;
     public Integer trust_num;
 

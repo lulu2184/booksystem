@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/13.
  */
-public class GiveFeedback extends InterativeForm{
+public class GiveFeedback extends Update{
 
     public String book;
     public Integer score;

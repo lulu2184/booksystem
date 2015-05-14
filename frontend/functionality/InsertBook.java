@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/12.
  */
-public class InsertBook extends InterativeForm{
+public class InsertBook extends Update{
     public String ISBN;
     public String title;
     public Integer inum;

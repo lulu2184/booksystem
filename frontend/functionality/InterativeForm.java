@@ -26,24 +26,9 @@ abstract class InterativeForm {
         return new DialogPair(info, this.getClass().getField(fieldName));
     }
 
-    abstract protected CheckResult actions() throws SQLException;
     protected void successUpdate(PageController pc){};
 
-    protected void execute(PageController pc){
-        try{
-            CheckResult result = actions();
-            if (result.isValid()){
-                System.out.println("Successful to " + action_name + ".");
-                successUpdate(pc);
-            }else{
-                System.out.println("Unsuccessful to " + action_name + ". " + result.getMessage());
-            }
-        }catch (SQLException e){
-            System.out.println("Unsuccessful to " + action_name + ". SQLException occurs.");
-            System.err.println("Error message as follows:");
-            System.err.println(e.getMessage());
-        }
-    };
+    abstract protected void execute(PageController pc);
 
     protected void getInfo() throws IOException, NumberFormatException, IllegalAccessException{
         for (DialogPair d : infoList){

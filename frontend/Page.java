@@ -114,6 +114,16 @@ public enum Page {
             }
             return true;
         }
+    },
+    USEFUL_FEEDBACK("find the most n useful feedback for a book."){
+        boolean Do(PageController pc){
+            try{
+                new FindUsefulFeedback().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
     };
 
     private final String message;

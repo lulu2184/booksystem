@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/13.
  */
-public class Rate extends InterativeForm{
+public class Rate extends Update{
     public long fid;
     public Integer score;
 

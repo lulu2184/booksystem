@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/13.
  */
-public class CopiesArrival extends InterativeForm{
+public class CopiesArrival extends Update{
 
     public String book;
     public Integer qty;

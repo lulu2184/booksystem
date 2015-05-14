@@ -13,12 +13,6 @@ abstract public class Query {
     protected QueryResult result;
     protected String sql;
     protected String[] column_name;
-    protected String table_name;
-    protected String where_clause;
-    protected String[] groupby_clause = null;
-    protected String having_clause = null;
-    protected String order_clause = null;
-
 
     public Query(){
 
@@ -38,31 +32,31 @@ abstract public class Query {
         return result;
     }
 
-    private void getSQL(){
-        sql = "SELECT " + connected(column_name);
-        sql += " FROM " + table_name + " WHERE " + where_clause;
-        if (groupby_clause != null){
-            sql += " GROUP BY " + groupby_clause;
-        }
-        if (having_clause != null){
-            sql += " HAVING " + having_clause;
-        }
-        if (order_clause != null){
-            sql += " ORDER BY " + order_clause;
-        }
-        sql += ";";
-    }
+    abstract void getSQL();
+    abstract boolean check() throws SQLException;
 
-    public QueryResult query(){
-        getSQL();
-        try {
-            ResultSet rs = Connector.ExecuteQuery(sql);
-            result.setResult()
-        } catch (SQLException e){
-            System.out.println("Unsuccessful to query. SQL exception occurs.");
-            System.err.println(e.getMessage());
-            result.setUnvalid();
+//    private void getSQL(){
+//        sql = "SELECT " + connected(column_name);
+//        sql += " FROM " + table_name + " WHERE " + where_clause;
+//        if (groupby_clause != null){
+//            sql += " GROUP BY " + connected(groupby_clause);
+//        }
+//        if (having_clause != null){
+//            sql += " HAVING " + having_clause;
+//        }
+//        if (order_clause != null){
+//            sql += " ORDER BY " + order_clause;
+//        }
+//        sql += ";";
+//    }
+
+    public QueryResult query() throws SQLException{
+        if (!check()){
+            return result;
         }
+        getSQL();
+        ResultSet rs = Connector.ExecuteQuery(sql);
+        result.setResult(rs, column_name);
         return result;
     }
 }

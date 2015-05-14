@@ -3,6 +3,7 @@ package backend.query;
 import backend.check.CheckResult;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,10 +13,10 @@ import java.util.List;
  */
 public class QueryResult {
 
-    private String message;
-    private boolean valid;
-    private List<String> fields_name;
-    private List<List<String>> result;
+    public String message;
+    public boolean valid;
+    public List<String> fields_name;
+    public List<List<String>> result;
 
     public QueryResult(){
 
@@ -25,10 +26,26 @@ public class QueryResult {
         List<String> a = Arrays.asList(str_array);
     }
 
-    public void setUnvalid(){
+    public void setUnvalid(String message){
+        this.message = message;
         valid = false;
     }
 
-    public void setResult(ResultSet )
+    public void setResult(ResultSet rs, String[] columns_name) throws SQLException{
+        result = new ArrayList<List<String>>();
+        while (rs.next()){
+            List <String> tmp = new ArrayList<String>();
+            for (String str : columns_name){
+                tmp.add(rs.getString(str));
+            }
+        }
+    }
 
+    public boolean isValid(){
+        return valid;
+    }
+
+    public String getMessage(){
+        return message;
+    }
 }

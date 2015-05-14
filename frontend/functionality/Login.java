@@ -2,6 +2,7 @@ package frontend.functionality;
 
 import backend.check.CheckResult;
 import backend.check.content.ValidUser;
+import backend.update.*;
 import frontend.Page;
 import frontend.PageController;
 
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/4.
  */
-public class Login extends InterativeForm {
+public class Login extends Update{
     public String username;
     public String password;
 

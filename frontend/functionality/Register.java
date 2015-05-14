@@ -12,7 +12,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/4.
  */
-public class Register extends InterativeForm {
+public class Register extends Update{
     public String username;
     public String password;
     public String fullname;
