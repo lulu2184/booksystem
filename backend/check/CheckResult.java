@@ -28,6 +28,10 @@ public class CheckResult {
         return new CheckResult(true, "");
     }
 
+    public static CheckResult createSuccess(String message){
+        return new CheckResult(true, message);
+    }
+
     public static CheckResult createFail(String message){
         return new CheckResult(false, message);
     }

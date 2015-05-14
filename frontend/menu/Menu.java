@@ -11,7 +11,7 @@ import java.util.EmptyStackException;
  * Created by LU on 15/5/3.
  */
 abstract public class Menu {
-    protected Page[] menu = {Page.MANAGERMENU};
+    protected Page[] menu = {Page.MANAGERMENU, Page.AUTHOR_DEGREE};
     protected String message = "";
     protected String exitmessage = "";
 

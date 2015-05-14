@@ -13,9 +13,10 @@ public class BookInfo {
     public String format;
     public String subject;
     public String pname;
+    public String[] author;
     public Integer publish_year;
 
-    public BookInfo(String ISBN, String title, Integer inum, double price, String format, String subject, String pname, Integer publish_year){
+    public BookInfo(String ISBN, String title, Integer inum, double price, String format, String subject, String pname, Integer publish_year, String[] author){
         this.ISBN = ISBN;
         this.title = title;
         this.inum = inum;
@@ -24,6 +25,7 @@ public class BookInfo {
         this.subject = subject;
         this.pname = pname;
         this.publish_year = publish_year;
+        this.author = author;
     }
 
     public String getInsertFormat(){

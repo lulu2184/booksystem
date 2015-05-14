@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/14.
  */
-public class BuyingSuggestion extends QueryOperation{
+public class BuyingSuggestion extends ListQuery {
     public BuyingSuggestion(){
         item_name = "Book";
         action_name = "Buying Suggestion";

@@ -14,10 +14,10 @@ import java.util.List;
 /**
  * Created by LU on 15/5/14.
  */
-abstract public class QueryOperation extends InterativeForm{
+abstract public class ListQuery extends InterativeForm{
     protected String item_name;
 
-    public QueryOperation(){
+    public ListQuery(){
 
     }
 

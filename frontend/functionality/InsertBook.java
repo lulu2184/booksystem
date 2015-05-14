@@ -17,6 +17,7 @@ public class InsertBook extends Update{
     public String format;
     public String subject;
     public String pname;
+    public String authors;
     public Integer publish_year;
 
     public InsertBook() throws NoSuchFieldException{
@@ -28,11 +29,13 @@ public class InsertBook extends Update{
         infoList.add(createDialogPair("please enter the subject of this book:", "subject"));
         infoList.add(createDialogPair("please enter the publisher name of this book:", "pname"));
         infoList.add(createDialogPair("please enter the publish year of this book:", "publish_year"));
+        infoList.add(createDialogPair("please enter the authors of this book:(use comma or space to seperate them)", "authors"));
         action_name = "Insert New Book";
     }
 
     protected CheckResult actions() throws SQLException{
-        BookInfo info = new BookInfo(ISBN, title, inum, price, format, subject, pname, publish_year);
+        String[] author_list = authors.split("(,| )");
+        BookInfo info = new BookInfo(ISBN, title, inum, price, format, subject, pname, publish_year,author_list);
         return new CreateNewBook(info).actions();
     }
 }

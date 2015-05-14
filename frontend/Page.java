@@ -130,6 +130,16 @@ public enum Page {
             new BuyingSuggestion().Do(pc);
             return true;
         }
+    },
+    AUTHOR_DEGREE("calculate degree of two authors."){
+        boolean Do(PageController pc){
+            try {
+                new DegreeOfAuthor().Do(pc);
+            }catch (NoSuchFieldException e){
+                noSuchFieldActions(pc, e);
+            }
+            return true;
+        }
     };
 
     private final String message;

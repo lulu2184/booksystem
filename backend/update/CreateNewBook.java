@@ -36,6 +36,10 @@ public class CreateNewBook extends Update{
     protected void getSQLList(){
         String sql = getInsertStatement("Book", BookInfo.getColumnsFormat(), info.getInsertFormat());
         sqlList.add(sql);
+        for (String author : info.author){
+            sql = getInsertStatement("AuthorOf", "aname, ISBN", addQuotes(author) + ", " + addQuotes(info.ISBN));
+            sqlList.add(sql);
+        }
     }
 
 }

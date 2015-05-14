@@ -1,4 +1,4 @@
-DROP TABLE Declares;
+ DROP TABLE Declares;
 DROP TABLE Rate;
 DROP TABLE InOrder;
 DROP TABLE Keyword;
@@ -25,10 +25,6 @@ CREATE TABLE Book(	ISBN CHAR(40),
 					publish_year INTEGER CHECK(publish_year >= 1900),
 					PRIMARY KEY(ISBN),
 					FOREIGN KEY(pname) REFERENCES Publisher(pname));
-
-CREATE TABLE Author(aname CHAR(40),
-					introduce VARCHAR(2000),
-					PRIMARY KEY(aname));
 
 
 CREATE TABLE User(	username CHAR(20),
@@ -59,7 +55,6 @@ CREATE TABLE Orders(orderid BIGINT,
 CREATE TABLE AuthorOf(	aname CHAR(40),
 						ISBN CHAR(40),
 						PRIMARY KEY(aname, ISBN),
-						FOREIGN KEY(aname) REFERENCES Author(aname),
 						FOREIGN KEY(ISBN) REFERENCES Book(ISBN));
 
 CREATE TABLE Keyword(	ISBN CHAR(40),

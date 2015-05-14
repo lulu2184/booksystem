@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by LU on 15/5/14.
  */
-public class FindUsefulFeedback extends QueryOperation{
+public class FindUsefulFeedback extends ListQuery {
     public String book;
     public Integer number;
 
