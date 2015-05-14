@@ -14,6 +14,7 @@ public class Controller {
             System.out.println("           Database book manage system");
             new PageController().Do();
         }catch (Exception e){
+            System.err.println(e.getMessage());
             System.out.println("Cannot connect to database server.");
         }
         finally{

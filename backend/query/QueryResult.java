@@ -23,7 +23,7 @@ public class QueryResult {
     }
 
     public void setFieldsName(String[] str_array){
-        List<String> a = Arrays.asList(str_array);
+        fields_name = Arrays.asList(str_array);
     }
 
     public void setUnvalid(String message){
@@ -32,12 +32,14 @@ public class QueryResult {
     }
 
     public void setResult(ResultSet rs, String[] columns_name) throws SQLException{
+        valid = true;
         result = new ArrayList<List<String>>();
         while (rs.next()){
             List <String> tmp = new ArrayList<String>();
             for (String str : columns_name){
                 tmp.add(rs.getString(str));
             }
+            result.add(tmp);
         }
     }
 

@@ -15,16 +15,18 @@ public class UsefulFeedback extends Query{
     public UsefulFeedback(String book, Integer number){
         this.book = book;
         this.number = number;
+        this.result = new QueryResult();
         result.setFieldsName(field_name);
-        column_name = new String[]{"fid", "avg(score)", "username", "date", "content"};
+        column_name = new String[]{"fid", "avg(R.rate_num)", "username", "propose_date", "content"};
     }
 
     protected void getSQL(){
-        sql = "SELECT TOP " + number.toString() + " F.fid, avg(R.rate_num), F.username, F.date, F.content "
-                + "FROM Rate R, Feedback F"
+        sql = "SELECT " + " F.fid, avg(R.rate_num), F.username, F.propose_date, F.content "
+                + "FROM Rate R, Feedback F "
                 + "WHERE R.fid = F.fid AND F.ISBN = '" + book + "'"
-                + "GROUP BY F.fid"
-                + "ORDEY BY avg(R.rate_num) DESC;";
+                + "GROUP BY F.fid "
+                + "ORDER BY avg(R.rate_num) DESC "
+                + "LIMIT " + number.toString() + ";";
     }
 
     protected boolean check()throws SQLException{

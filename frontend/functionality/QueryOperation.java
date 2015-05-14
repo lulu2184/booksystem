@@ -15,6 +15,7 @@ import java.util.List;
  * Created by LU on 15/5/14.
  */
 abstract public class QueryOperation extends InterativeForm{
+    protected String item_name;
 
     public QueryOperation(){
 
@@ -23,14 +24,18 @@ abstract public class QueryOperation extends InterativeForm{
 
     private void Output(QueryResult result){
         ListIterator <List<String>> row_it = result.result.listIterator();
-        List<String> row = null;
+        List<String> row;
+        int count = 0;
         while (row_it.hasNext()){
+            count++;
+            System.out.println(item_name + "  " + Integer.toString(count) + ":");
             row = row_it.next();
             ListIterator <String> field_it = result.fields_name.listIterator();
             ListIterator <String> value_it = row.listIterator();
             while (field_it.hasNext() && value_it.hasNext()) {
-                System.out.println(field_it.next() + " :    " + value_it.next());
+                System.out.printf("%-20s  %s\n",field_it.next() + ":", value_it.next());
             }
+            System.out.println();
         }
     }
 
