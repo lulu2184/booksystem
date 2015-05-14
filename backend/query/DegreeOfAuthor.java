@@ -20,17 +20,17 @@ public class DegreeOfAuthor{
     }
 
     private CheckResult check() throws SQLException{
-        if (!ExistingCheck.check("Author", "aname", author1)){
+        if (!ExistingCheck.check("AuthorOf", "aname", author1)){
             return CheckResult.createFail("the first author(" + author1 + ") is not exists.");
         }
-        if (!ExistingCheck.check("Author", "aneme", author2)){
+        if (!ExistingCheck.check("AuthorOf", "aname", author2)){
             return CheckResult.createFail("the second author(" + author2 + ") is not exists.");
         }
         return CheckResult.createSuccess();
     }
 
     private boolean linked(String from_clause, String where_clause) throws SQLException{
-        String sql = "SELECT COUNT(*) FROM " + from_clause + " WHERE " + where_clause + ";";
+        String sql = "SELECT * FROM " + from_clause + " WHERE " + where_clause + ";";
         ResultSet rs = Connector.ExecuteQuery(sql);
         return rs.next();
     }
@@ -48,8 +48,8 @@ public class DegreeOfAuthor{
         if (linked(from_clause, where_clause)){
             return result.createSuccess("1");
         }
-        from_clause = "AuthorOf A1, Book B1, AuthorOf A2, Book B2, Author A0";
-        where_clause = "A1.aname = '" + author1 +  "' AND A1.ISBN = B1.ISBN AND B1.ISBN = A1.ISBN AND A2.ISBN = B2.ISBN AND B2.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
+        from_clause = "AuthorOf A1, Book B1, AuthorOf A2, Book B2, AuthorOf A0";
+        where_clause = "A1.aname = '" + author1 +  "' AND A1.ISBN = B1.ISBN AND B1.ISBN = A2.ISBN AND A2.ISBN = B2.ISBN AND B2.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
         if (linked(from_clause,where_clause)){
             return result.createSuccess("2");
         }

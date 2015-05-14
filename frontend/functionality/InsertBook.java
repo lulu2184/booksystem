@@ -29,12 +29,12 @@ public class InsertBook extends Update{
         infoList.add(createDialogPair("please enter the subject of this book:", "subject"));
         infoList.add(createDialogPair("please enter the publisher name of this book:", "pname"));
         infoList.add(createDialogPair("please enter the publish year of this book:", "publish_year"));
-        infoList.add(createDialogPair("please enter the authors of this book:(use comma or space to seperate them)", "authors"));
+        infoList.add(createDialogPair("please enter the authors of this book:(use comma to seperate them)", "authors"));
         action_name = "Insert New Book";
     }
 
     protected CheckResult actions() throws SQLException{
-        String[] author_list = authors.split("(,| )");
+        String[] author_list = authors.split(",");
         BookInfo info = new BookInfo(ISBN, title, inum, price, format, subject, pname, publish_year,author_list);
         return new CreateNewBook(info).actions();
     }

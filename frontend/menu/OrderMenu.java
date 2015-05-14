@@ -20,7 +20,7 @@ public class OrderMenu extends Menu {
 
     private OrderMenu(){
         message = "Welcome to order menu, ";
-        menu = new Page[]{Page.INSERT_IN_ORDER, Page.AUTHOR_DEGREE};
+        menu = new Page[]{Page.INSERT_IN_ORDER};
         exitmessage = "finish this order.";
     }
 

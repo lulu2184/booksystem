@@ -18,7 +18,7 @@ public class MainMenu extends Menu {
     }
 
     private MainMenu(){
-        menu = new Page[] {Page.LOGIN, Page.REGISTER, Page.MANAGERMENU, Page.USEFUL_FEEDBACK};
+        menu = new Page[] {Page.LOGIN, Page.REGISTER, Page.MANAGERMENU, Page.USEFUL_FEEDBACK, Page.AUTHOR_DEGREE};
         message = "";
         exitmessage = "exit this system.";
     }

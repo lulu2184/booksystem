@@ -4,6 +4,7 @@ package backend.update;
 import backend.Connector;
 import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
+import backend.check.format.DuplicateChecker;
 import backend.check.format.ValidNewBook;
 import backend.info.BookInfo;
 
@@ -20,15 +21,15 @@ public class CreateNewBook extends Update{
     }
 
     protected CheckResult formatCheck(){
+        if (!DuplicateChecker.check(info.author)){
+            return CheckResult.createFail("Duplicate authors.");
+        }
         return ValidNewBook.check(info);
     }
 
     protected CheckResult contentCheck() throws SQLException{
         if (ExistingCheck.check("Book", "ISBN", info.ISBN)){
             return CheckResult.createFail("This book is already exists.");
-        }
-        if (!ExistingCheck.check("Publisher", "pname", info.pname)){
-            return CheckResult.createFail("This publisher not exists.");
         }
         return CheckResult.createSuccess();
     }

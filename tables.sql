@@ -6,14 +6,7 @@ DROP TABLE AuthorOf;
 DROP TABLE Orders;
 DROP TABLE Feedback;
 DROP TABLE User;
-DROP TABLE Author;
 DROP TABLE Book;
-DROP TABLE Publisher;
-
-
-CREATE TABLE Publisher(	pname CHAR(40),
-						introduce VARCHAR(2000),
-						PRIMARY KEY(pname));
 
 CREATE TABLE Book(	ISBN CHAR(40),
 					title VARCHAR(100),
@@ -23,8 +16,7 @@ CREATE TABLE Book(	ISBN CHAR(40),
 					subject CHAR(40),
 					pname CHAR(40),
 					publish_year INTEGER CHECK(publish_year >= 1900),
-					PRIMARY KEY(ISBN),
-					FOREIGN KEY(pname) REFERENCES Publisher(pname));
+					PRIMARY KEY(ISBN));
 
 
 CREATE TABLE User(	username CHAR(20),
