@@ -14,7 +14,7 @@ public class GiveFeedback extends Update{
     public String content;
 
     public GiveFeedback() throws NoSuchFieldException{
-        action_name = "give feedback";
+        action_name = "Give Feedback";
         infoList.add(createDialogPair("please enter the ISBN of the book you want to give feedback to:", "book"));
         infoList.add(createDialogPair("please enter the score you want to give to this book:", "score"));
         infoList.add(createDialogPair("please enter your comment to this book:", "content"));

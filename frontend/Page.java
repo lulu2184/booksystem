@@ -124,6 +124,12 @@ public enum Page {
             }
             return true;
         }
+    },
+    BUYING_SUGGESTION(""){
+        boolean Do(PageController pc){
+            new BuyingSuggestion().Do(pc);
+            return true;
+        }
     };
 
     private final String message;

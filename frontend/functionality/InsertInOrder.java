@@ -1,7 +1,9 @@
 package frontend.functionality;
 
 import backend.check.CheckResult;
+import backend.session.BookInOrder;
 import backend.update.InsertABookInOrder;
+import frontend.Page;
 import frontend.PageController;
 
 import java.sql.SQLException;
@@ -12,11 +14,12 @@ import java.sql.SQLException;
 public class InsertInOrder extends Order {
 
     public InsertInOrder() throws NoSuchFieldException{
-        action_name = "insert a book into order";
+        action_name = "Insert Book Into Order";
     }
 
     protected void successUpdate(PageController pc){
-
+        BookInOrder.setBook(ISBN);
+        pc.changeCurrentPage(Page.BUYING_SUGGESTION);
     }
 
     protected CheckResult actions() throws SQLException{

@@ -16,7 +16,7 @@ public class Login extends Update{
     public String password;
 
     public Login() throws NoSuchFieldException {
-        action_name = "login";
+        action_name = "Login";
         infoList.add(createDialogPair("please enter your username:", "username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
     }

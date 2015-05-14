@@ -13,7 +13,7 @@ public class FindUsefulFeedback extends QueryOperation{
     public Integer number;
 
     public FindUsefulFeedback() throws NoSuchFieldException{
-        action_name = "find userful feedback";
+        action_name = "Find Userful Feedback";
         item_name = "Feedback";
         infoList.add(createDialogPair("please enter the ISBN of the book you want to find useful feedback:", "book"));
         infoList.add(createDialogPair("please enter the number of feedbacks you want:", "number"));

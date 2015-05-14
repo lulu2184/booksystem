@@ -1,5 +1,6 @@
 package backend;
 
+import javax.management.InstanceNotFoundException;
 import java.sql.*;
 
 /**
@@ -18,20 +19,22 @@ public class Connector {
         return ourInstance;
     }
 
-    private Connector() throws Exception {
-            try{
+    private Connector() throws SQLException, ClassNotFoundException, InstanceNotFoundException, IllegalAccessException, InstantiationException{
+          //  try{
                 String userName = "fudanu30";
                 String password = "nrkgn719";
                 String url = "jdbc:mysql://10.141.208.26/fudandbd30";
                 Class.forName ("com.mysql.jdbc.Driver").newInstance ();
                 con = DriverManager.getConnection(url, userName, password);
                 stmt = con.createStatement();
-            } catch(Exception e) {
-                System.err.println("Unable to open mysql jdbc connection. The error is as follows,\n");
-                System.err.println(e.getMessage());
-                e.printStackTrace();
-                throw(e);
-            }
+//            } catch(SQLException e) {
+//                System.err.println("Unable to open mysql jdbc connection. The error is as follows,\n");
+//                System.err.println(e.getMessage());
+//                e.printStackTrace();
+//                throw(e);
+//            } catch (ClassNotFoundException e){
+//                System.err.println(e.getMessage());
+//            }
     }
 
     public static void ExecuteInsertion(String insertion) throws SQLException{

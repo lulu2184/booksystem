@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by LU on 15/5/13.
  */
 abstract public class Query {
-    protected QueryResult result;
+    protected QueryResult result = new QueryResult();
     protected String sql;
     protected String[] column_name;
 

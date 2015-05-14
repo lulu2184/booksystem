@@ -45,13 +45,13 @@ abstract public class QueryOperation extends InterativeForm{
         try{
             QueryResult result = getResult();
             if (result.isValid()){
-                System.out.println("Successful to " + action_name + ".");
+                System.out.println("Successful to " + action_name.toLowerCase() + ".");
                 Output(result);
             }else{
-                System.out.println("Unsuccessful to " + action_name + ". " + result.getMessage());
+                System.out.println("Unsuccessful to " + action_name.toLowerCase() + ". " + result.getMessage());
             }
         }catch (SQLException e){
-            System.out.println("Unsuccessful to " + action_name + ". SQLException occurs.");
+            System.out.println("Unsuccessful to " + action_name.toLowerCase() + ". SQLException occurs.");
             System.err.println("Error message as follows:");
             System.err.println(e.getMessage());
         }

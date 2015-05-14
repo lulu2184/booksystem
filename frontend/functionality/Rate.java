@@ -13,7 +13,7 @@ public class Rate extends Update{
     public Integer score;
 
     public Rate() throws NoSuchFieldException{
-        action_name = "rate for a feedback";
+        action_name = "Rate For Feedback";
         infoList.add(createDialogPair("please enter the ID of feedback you want to rate for:", "fid"));
         infoList.add(createDialogPair("please enter the numerical score you want to give to this feedback:", "score"));
     }

@@ -53,12 +53,13 @@ abstract public class Menu {
     }
 
     public boolean display(PageController pc){
+        System.out.println();
         System.out.println(getMessage());
         showText(menu);
         return transfer(pc);
     }
 
-    private void prepareForExit(){}
+    protected void prepareForExit(){}
 
     abstract public String getMessage();
 }

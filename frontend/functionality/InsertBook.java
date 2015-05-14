@@ -28,7 +28,7 @@ public class InsertBook extends Update{
         infoList.add(createDialogPair("please enter the subject of this book:", "subject"));
         infoList.add(createDialogPair("please enter the publisher name of this book:", "pname"));
         infoList.add(createDialogPair("please enter the publish year of this book:", "publish_year"));
-        action_name = "insert a new book";
+        action_name = "Insert New Book";
     }
 
     protected CheckResult actions() throws SQLException{

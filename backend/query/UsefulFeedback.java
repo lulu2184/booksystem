@@ -15,7 +15,6 @@ public class UsefulFeedback extends Query{
     public UsefulFeedback(String book, Integer number){
         this.book = book;
         this.number = number;
-        this.result = new QueryResult();
         result.setFieldsName(field_name);
         column_name = new String[]{"fid", "avg(R.rate_num)", "username", "propose_date", "content"};
     }

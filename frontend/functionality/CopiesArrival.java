@@ -14,7 +14,7 @@ public class CopiesArrival extends Update{
     public Integer qty;
 
     public CopiesArrival() throws NoSuchFieldException{
-        action_name = "increase the inventory number of this book";
+        action_name = "Increase Inventory Number Of Book";
         infoList.add(createDialogPair("please enter the ISBN of the book which have more copies arrival:", "book"));
         infoList.add(createDialogPair("please enter the quantity of new copies:", "qty"));
     }

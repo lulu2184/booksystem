@@ -31,6 +31,8 @@ abstract class InterativeForm {
     abstract protected void execute(PageController pc);
 
     protected void getInfo() throws IOException, NumberFormatException, IllegalAccessException{
+        System.out.println();
+        System.out.println(action_name);
         for (DialogPair d : infoList){
             d.printDialog();
             String info = Input.getLine();
