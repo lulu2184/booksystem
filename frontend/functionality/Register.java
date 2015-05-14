@@ -20,8 +20,11 @@ public class Register extends Update{
     public String address;
     public String phone;
 
-    public Register() throws NoSuchFieldException{
+    public Register() {
         action_name = "Register";
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter your username;","username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
         infoList.add(createDialogPair("please enter your fullname:", "fullname"));

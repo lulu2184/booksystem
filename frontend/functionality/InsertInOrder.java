@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class InsertInOrder extends Order {
 
-    public InsertInOrder() throws NoSuchFieldException{
+    public InsertInOrder(){
         action_name = "Insert Book Into Order";
     }
 

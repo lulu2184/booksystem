@@ -12,10 +12,13 @@ public class GiveTrustNumber extends Update{
     public String username;
     public Integer trust_num;
 
-    public GiveTrustNumber() throws NoSuchFieldException{
+    public GiveTrustNumber() {
+        action_name = "Give Trust Number To User";
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter the user you want to give trust number to:", "username"));
         infoList.add(createDialogPair("if you trust this user, please enter 1, otherwise, enter 0:", "trust_num"));
-        action_name = "Give Trust Number To User";
     }
 
     protected CheckResult actions() throws SQLException{

@@ -14,6 +14,10 @@ public class BuyingSuggestion extends ListQuery {
         action_name = "Buying Suggestion";
     }
 
+    protected void infoListInitialize(){
+
+    }
+
     protected QueryResult getResult() throws SQLException{
         return new backend.query.BuyingSuggestion(BookInOrder.getCurrentBook()).query();
     }

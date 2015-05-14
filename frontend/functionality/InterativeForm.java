@@ -14,7 +14,7 @@ import java.util.IllegalFormatCodePointException;
 /**
  * Created by LU on 15/5/4.
  */
-abstract class InterativeForm {
+abstract public class InterativeForm {
     ArrayList<DialogPair> infoList = new ArrayList<DialogPair>();
     protected String action_name;
 
@@ -51,7 +51,10 @@ abstract class InterativeForm {
         }
     }
 
-    public void Do(PageController pc){
+    abstract protected void infoListInitialize() throws NoSuchFieldException;
+
+    public void Do(PageController pc) throws NoSuchFieldException{
+        infoListInitialize();
         pc.exitCurrentPage();
         try {
             getInfo();

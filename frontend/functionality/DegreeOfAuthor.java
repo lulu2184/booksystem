@@ -12,8 +12,11 @@ public class DegreeOfAuthor extends InterativeForm{
     public String author1;
     public String author2;
 
-    public DegreeOfAuthor() throws NoSuchFieldException{
+    public DegreeOfAuthor() {
         action_name = "calculate degree of authors";
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter name of an author:", "author1"));
         infoList.add(createDialogPair("please enter name of another author:", "author2"));
     }

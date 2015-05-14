@@ -12,9 +12,12 @@ public class FindUsefulFeedback extends ListQuery {
     public String book;
     public Integer number;
 
-    public FindUsefulFeedback() throws NoSuchFieldException{
+    public FindUsefulFeedback() {
         action_name = "Find Userful Feedback";
         item_name = "Feedback";
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter the ISBN of the book you want to find useful feedback:", "book"));
         infoList.add(createDialogPair("please enter the number of feedbacks you want:", "number"));
     }

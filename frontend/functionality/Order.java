@@ -9,7 +9,10 @@ abstract public class Order extends Update{
     public String ISBN;
     public Integer quantity;
 
-    public Order()throws NoSuchFieldException{
+    public Order(){
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter a book ISBN:", "ISBN"));
         infoList.add(createDialogPair("please enter the quantity of this book you want to order:", "quantity"));
     }

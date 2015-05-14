@@ -35,21 +35,6 @@ abstract public class Query {
     abstract void getSQL();
     abstract boolean check() throws SQLException;
 
-//    private void getSQL(){
-//        sql = "SELECT " + connected(column_name);
-//        sql += " FROM " + table_name + " WHERE " + where_clause;
-//        if (groupby_clause != null){
-//            sql += " GROUP BY " + connected(groupby_clause);
-//        }
-//        if (having_clause != null){
-//            sql += " HAVING " + having_clause;
-//        }
-//        if (order_clause != null){
-//            sql += " ORDER BY " + order_clause;
-//        }
-//        sql += ";";
-//    }
-
     public QueryResult query() throws SQLException{
         if (!check()){
             return result;

@@ -20,7 +20,11 @@ public class InsertBook extends Update{
     public String authors;
     public Integer publish_year;
 
-    public InsertBook() throws NoSuchFieldException{
+    public InsertBook() {
+        action_name = "Insert New Book";
+    }
+
+    protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter the ISBN of the book:", "ISBN"));
         infoList.add(createDialogPair("please enter the title of the book:", "title"));
         infoList.add(createDialogPair("please enter the quantity of this book:", "inum"));
@@ -30,7 +34,6 @@ public class InsertBook extends Update{
         infoList.add(createDialogPair("please enter the publisher name of this book:", "pname"));
         infoList.add(createDialogPair("please enter the publish year of this book:", "publish_year"));
         infoList.add(createDialogPair("please enter the authors of this book:(use comma to seperate them)", "authors"));
-        action_name = "Insert New Book";
     }
 
     protected CheckResult actions() throws SQLException{
