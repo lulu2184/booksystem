@@ -29,6 +29,9 @@ public class DeclareUser extends Update{
         if (ExistingCheck.checkPair("Declares", "declare_username", addQuotes(User.getUsername()), "declared_username", addQuotes(username))){
             return CheckResult.createFail("You have already give trust number to this user.");
         }
+        if (!ExistingCheck.check("User", "username", username)){
+            return CheckResult.createFail("This user not exists.");
+        }
         return CheckResult.createSuccess();
     }
 

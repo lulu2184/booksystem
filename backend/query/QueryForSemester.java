@@ -34,9 +34,9 @@ abstract public class QueryForSemester extends Query{
     protected void getBeginAndEndDate(){
         if (semester.equals("first")){
             begin_date = "-01-01";
-            end_date = "-05-31";
+            end_date = "-06-30";
         }else{
-            begin_date = "-06-01";
+            begin_date = "-07-01";
             end_date = "-12-31";
         }
         begin_date = year + begin_date;

@@ -47,7 +47,7 @@ abstract public class Menu {
         } catch (IOException e){
             System.err.println("IOException while getting your choice.");
         } catch (NumberFormatException e){
-            System.err.println("Wrong number format.");
+            System.out.println("Wrong number format.");
         }
         return result;
     }

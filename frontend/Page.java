@@ -99,6 +99,21 @@ public enum Page {
         boolean Do(PageController pc) {
             return interactiveActions(new PopAuthor(), pc);
         }
+    },
+    POP_PUBLISHER_IN_SEMESTER("get the 10 most popular publishers in a semester."){
+        boolean Do(PageController pc) {
+            return interactiveActions(new PopPublisher(), pc);
+        }
+    },
+    TRUSTER_USER("get the m most trusted users."){
+        boolean Do(PageController pc){
+            return interactiveActions(new TrustedUser(), pc);
+        }
+    },
+    USEFUL_USER("get the m most useful users."){
+        boolean Do(PageController pc){
+            return interactiveActions(new GetUsefulUser(), pc);
+        }
     };
 
     private final String message;

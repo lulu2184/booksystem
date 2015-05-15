@@ -19,7 +19,7 @@ public class ManageMenu extends Menu {
 
     private ManageMenu(){
         menu = new Page[]{Page.CREATE_NEW_BOOK, Page.NEW_COPIES_ARRIVAL, Page.USEFUL_FEEDBACK, Page.AUTHOR_DEGREE, Page.POP_BOOK_IN_SEMESTER,
-                           Page.POP_AUTHOR_IN_SEMESTER };
+                           Page.POP_AUTHOR_IN_SEMESTER, Page.POP_PUBLISHER_IN_SEMESTER, Page.TRUSTER_USER, Page.USEFUL_USER };
         message = "  manage page";
         exitmessage = "exit manager menu.";
     }
