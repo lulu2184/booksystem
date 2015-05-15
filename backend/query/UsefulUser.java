@@ -14,8 +14,8 @@ public class UsefulUser extends QueryForUser{
     }
 
     protected void getSQL(){
-        sql = "SELECT F.username, AVG(fscore) as score  as score FROM Feedback F, "
-                + "(SELECT fid, AVG(rate_num) as fscore FROM Rate R GROUP BY fid) AS T "
+        sql = "SELECT F.username, AVG(T.fscore) as score FROM Feedback F, "
+                + "(SELECT R.fid as fid, AVG(R.rate_num) as fscore FROM Rate R GROUP BY R.fid) AS T "
                 + "WHERE T.fid = F.fid "
                 + "GROUP BY F.username "
                 + "ORDER BY score DESC "
