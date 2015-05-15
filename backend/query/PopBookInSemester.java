@@ -9,13 +9,14 @@ public class PopBookInSemester extends QueryForSemester{
     public PopBookInSemester(String year, String semester){
         super(year,semester);
         result.setFieldsName(field_name);
+        column_name = new String[]{"ISBN", "title", "copies"};
     }
 
     protected void generateSQL(){
-        sql = "SELECT B.ISBN, B.title, SUM(I.num) as copies FROM Book B, InOrder I, Order O "
+        sql = "SELECT B.ISBN, B.title, SUM(I.num) as copies FROM Book B, InOrder I, Orders O "
                 + "WHERE B.ISBN = I.ISBN AND I.orderid = O.orderid AND O.order_date BETWEEN '" + begin_date + "' AND '" + end_date + "' "
                 + "GROUP BY B.ISBN, B.title "
-                + "ORDER BY copies DESC"
+                + "ORDER BY copies DESC "
                 + "LIMIT 10;";
     }
 }
