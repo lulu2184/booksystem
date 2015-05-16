@@ -114,6 +114,12 @@ public enum Page {
         boolean Do(PageController pc){
             return interactiveActions(new GetUsefulUser(), pc);
         }
+    },
+    BOOK_BROWSING("book browsing."){
+        boolean Do(PageController pc){
+            new BookBrowsing().Do(pc);
+            return true;
+        }
     };
 
     private final String message;

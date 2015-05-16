@@ -37,6 +37,9 @@ abstract public class ListQuery extends InterativeForm{
             }
             System.out.println();
         }
+        if (count == 0) {
+            System.out.println("No " + item_name + "s satisfies your constraints.");
+        }
     }
 
     abstract QueryResult getResult() throws SQLException;

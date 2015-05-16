@@ -18,8 +18,8 @@ public class MainMenu extends Menu {
     }
 
     private MainMenu(){
-        menu = new Page[] {Page.LOGIN, Page.REGISTER, Page.MANAGERMENU, Page.USEFUL_FEEDBACK, Page.AUTHOR_DEGREE};
-        message = "";
+        menu = new Page[] {Page.LOGIN, Page.REGISTER, Page.MANAGERMENU, Page.BOOK_BROWSING, Page.USEFUL_FEEDBACK, Page.AUTHOR_DEGREE};
+        message = "Welcome to book database system";
         exitmessage = "exit this system.";
     }
 
