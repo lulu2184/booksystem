@@ -10,7 +10,7 @@ public class UsefulUser extends QueryForUser{
     public UsefulUser(Integer m){
         super(m);
         result.setFieldsName(field_name);
-        column_name = new String[] {"declared_username", "score"};
+        column_name = new String[] {"username", "score"};
     }
 
     protected void getSQL(){
