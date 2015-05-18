@@ -45,19 +45,19 @@ public class BookBrowsing extends Query{
         if (orderType == 1){
             sql = "SELECT B.ISBN, title, format, subject, pname, publish_year, AVG(F.score) as score FROM Book B, Feedback F "
                     + "WHERE B.ISBN = F.ISBN AND " + sql +" "
-                    + "GROUP BY B.ISBN, title, format, subject, pname, publish_year"
-                    + "ORDER BY score publisher_year;";
+                    + "GROUP BY B.ISBN, title, format, subject, pname, publish_year "
+                    + "ORDER BY publish_year DESC;";
         }else if (orderType == 2){
             sql = "SELECT B.ISBN, title, format, subject, pname, publish_year, AVG(F.score) as score FROM Book B, Feedback F "
                     + "WHERE B.ISBN = F.ISBN AND " + sql +" "
-                    + "GROUP BY B.ISBN, title, format, subject, pname, publish_year"
+                    + "GROUP BY B.ISBN, title, format, subject, pname, publish_year "
                     + "ORDER BY score DESC;";
         }else{
-            sql = "SELECT DISTINCT B.ISBN, title, format, subject, pname, publish_year, AVG(F.score) as score" +
+            sql = "SELECT DISTINCT B.ISBN, title, format, subject, pname, publish_year, AVG(F.score) as score " +
                     "FROM Book B, Feedback F, (SELECT declared_username as username FROM Declares D " +
-                                                "GROUP BY declared_username HAVING SUM(trust_num)-SUM(1-trust_num) > 0) AS TU" +
+                                                "GROUP BY declared_username HAVING SUM(trust_num)-SUM(1-trust_num) > 0) AS TU " +
                     "WHERE B.ISBN = F.ISBN AND F.username = TU.username AND " + sql + " " +
-                    "GROUP BY B.ISBN " +
+                    "GROUP BY B.ISBN, title, format, subject, pname, publish_year " +
                     "ORDER BY score DESC;";
         }
     }
