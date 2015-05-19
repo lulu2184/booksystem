@@ -45,7 +45,7 @@ public enum Page {
             return OrderMenu.getInstance().display(pc);
         }
     },
-    INSERT_IN_ORDER("insert a book into current order.") {
+    INSERT_IN_ORDER("add books into current order.") {
         boolean Do(PageController pc) {
             return interactiveActions(new InsertInOrder(), pc);
         }

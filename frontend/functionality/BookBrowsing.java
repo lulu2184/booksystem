@@ -61,7 +61,7 @@ public class BookBrowsing {
             str = Input.getLine();
             tmp.add(new IntStrPair(c - 1, str));
         }
-        query.add(tmp);
+        if (tmp.size() > 0) query.add(tmp);
         System.out.println();
         System.out.println("how do you like the result to be sorted:");
         System.out.println("1. order by year");
@@ -96,7 +96,7 @@ public class BookBrowsing {
             System.out.println();
         }
         if (count == 0){
-            System.out.println("No books satisfies your constraints.");
+            System.out.println("No books satisfies your constraints or valid books without feedbacks.");
         }
     }
 
@@ -114,8 +114,14 @@ public class BookBrowsing {
         printTitle();
         pc.exitCurrentPage();
         try{
-            if (getInfo())
-                Output(execute(pc));
+            if (getInfo()) {
+                QueryResult rs = execute(pc);
+                if (rs.isValid()) {
+                    Output(rs);
+                }else{
+                    System.out.println("Unsuccess to browse books. " + rs.getMessage());
+                }
+            }
         }catch (IOException e){
             System.out.println("Unable to read.");
         }catch (NumberFormatException e){

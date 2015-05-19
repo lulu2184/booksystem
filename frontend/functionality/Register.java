@@ -25,7 +25,7 @@ public class Register extends Update{
     }
 
     protected void infoListInitialize() throws NoSuchFieldException{
-        infoList.add(createDialogPair("please enter your username;","username"));
+        infoList.add(createDialogPair("please enter your username:","username"));
         infoList.add(createDialogPair("please enter your password:", "password"));
         infoList.add(createDialogPair("please enter your fullname:", "fullname"));
         infoList.add(createDialogPair("please enter your age:", "age"));
@@ -33,7 +33,7 @@ public class Register extends Update{
         infoList.add(createDialogPair("please enter your phone number:", "phone"));
     }
 
-    protected void successUpdate(PageController pc){
+    protected void successActions(PageController pc){
         pc.changeCurrentPage(Page.USERMENU);
         User.login(username);
     }

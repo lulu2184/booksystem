@@ -4,6 +4,7 @@ import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
 import backend.session.User;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -33,6 +34,9 @@ public class RateFeedback extends Update{
         }
         if (ExistingCheck.checkPair("Rate", "username", addQuotes(username), "fid", Long.toString(fid))){
             return CheckResult.createFail("You have already rate for this feedback.");
+        }
+        if (ExistingCheck.checkPair("Feedback", "fid", Long.toString(fid), "username", addQuotes(username))){
+            return CheckResult.createFail("This feedback is proposed by you. You are not allowed to rate for it.");
         }
         return CheckResult.createSuccess();
     }

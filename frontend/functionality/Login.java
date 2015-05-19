@@ -24,7 +24,7 @@ public class Login extends Update{
         infoList.add(createDialogPair("please enter your password:", "password"));
     }
 
-    protected void successUpdate(PageController pc) {
+    protected void successActions(PageController pc) {
         backend.session.User.login(username);
         pc.changeCurrentPage(Page.USERMENU);
     }

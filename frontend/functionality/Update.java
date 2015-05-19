@@ -14,13 +14,13 @@ abstract public class Update extends InterativeForm{
         try{
             CheckResult result = actions();
             if (result.isValid()){
-                System.out.println("Successful to " + action_name + ".");
-                successUpdate(pc);
+                System.out.println("Successful to " + action_name.toLowerCase() + ".");
+                successActions(pc);
             }else{
-                System.out.println("Unsuccessful to " + action_name + ". " + result.getMessage());
+                System.out.println("Unsuccessful to " + action_name.toLowerCase() + ". " + result.getMessage());
             }
         }catch (SQLException e){
-            System.out.println("Unsuccessful to " + action_name + ". SQLException occurs.");
+            System.out.println("Unsuccessful to " + action_name.toLowerCase() + ". SQLException occurs.");
             System.err.println("Error message as follows:");
             System.err.println(e.getMessage());
         }

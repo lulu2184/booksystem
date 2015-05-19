@@ -18,7 +18,7 @@ public class Rate extends Update{
 
     protected void infoListInitialize() throws NoSuchFieldException{
         infoList.add(createDialogPair("please enter the ID of feedback you want to rate for:", "fid"));
-        infoList.add(createDialogPair("please enter the numerical score you want to give to this feedback:", "score"));
+        infoList.add(createDialogPair("please enter the numerical score you want to give to this feedback:(0 for 'useless', 1 for 'useful' and 2 for 'very useful'", "score"));
     }
 
     protected CheckResult actions() throws SQLException{

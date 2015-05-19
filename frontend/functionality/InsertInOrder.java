@@ -14,10 +14,10 @@ import java.sql.SQLException;
 public class InsertInOrder extends Order {
 
     public InsertInOrder(){
-        action_name = "Insert Book Into Order";
+        action_name = "Add Books Into Order";
     }
 
-    protected void successUpdate(PageController pc){
+    protected void successActions(PageController pc){
         BookInOrder.setBook(ISBN);
         pc.changeCurrentPage(Page.BUYING_SUGGESTION);
     }

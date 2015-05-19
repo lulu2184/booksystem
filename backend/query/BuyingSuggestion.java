@@ -8,7 +8,7 @@ import backend.session.User;
 public class BuyingSuggestion extends Query{
     private String book;
     private String username;
-    private static final String[] field_name = {"ISBN", "title", "count"};
+    private static final String[] field_name = {"ISBN", "title", "sales count"};
 
     public BuyingSuggestion(String book){
         this.book = book;

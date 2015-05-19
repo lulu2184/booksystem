@@ -27,7 +27,7 @@ public class RegisterActions extends Update{
     }
 
     protected CheckResult contentCheck()throws SQLException{
-        if (ExistingCheck.check("User", "username", info.username)){
+        if (ExistingCheck.check("User", "username", info.username.replaceAll("'", "''"))){
             return CheckResult.createFail("Username is already exists.");
         }else{
             return CheckResult.createSuccess();

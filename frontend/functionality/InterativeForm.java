@@ -26,7 +26,7 @@ abstract public class InterativeForm {
         return new DialogPair(info, this.getClass().getField(fieldName));
     }
 
-    protected void successUpdate(PageController pc){};
+    protected void successActions(PageController pc){};
 
     abstract protected void execute(PageController pc);
 
@@ -59,6 +59,7 @@ abstract public class InterativeForm {
         try {
             getInfo();
             execute(pc);
+
         }catch (IOException e){
             System.err.println(e.getMessage());
             System.out.println("Unable to get input.");

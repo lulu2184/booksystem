@@ -34,11 +34,12 @@ abstract public class ListQuery extends InterativeForm{
             System.out.println();
         }
         if (count == 0) {
-            System.out.println("No " + item_name + "s satisfies your constraints.");
+            System.out.println("No " + item_name + "s satisfies the constraints.");
         }
     }
 
     abstract QueryResult getResult() throws SQLException;
+    protected void finishActions(){}
 
     protected void execute(PageController pc){
         try{
@@ -54,5 +55,6 @@ abstract public class ListQuery extends InterativeForm{
             System.err.println("Error message as follows:");
             System.err.println(e.getMessage());
         }
+        finishActions();
     }
 }
