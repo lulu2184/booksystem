@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class Order {
     private long orderid;
     private static Order oneInstance = null;
-    private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private Order(long orderid){
         this.orderid = orderid;

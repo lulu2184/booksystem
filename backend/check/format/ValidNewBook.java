@@ -30,11 +30,11 @@ public class ValidNewBook extends FormatChecker{
         if (info.title.length() < shortest_title || info.title.length() > longest_title){
             return result;
         }
-        result = new StringFieldCheck(info.format, "format", shortest_format, longest_format, new LetterChecker()).check();
+        result = new StringFieldCheck(info.format, "format", shortest_format, longest_format, null).check();
         if (!result.isValid()){
             return result;
         }
-        result = new StringFieldCheck(info.subject, "subject", shortest_subject, longest_subject, new LetterChecker()).check();
+        result = new StringFieldCheck(info.subject, "subject", shortest_subject, longest_subject, null).check();
         if (!result.isValid()){
             return result;
         }
@@ -47,7 +47,7 @@ public class ValidNewBook extends FormatChecker{
         if (info.publish_year < 1900){
             return CheckResult.createFail("publish year should larger than 1900.");
         }
-        result = new StringFieldCheck(info.pname, "publisher name", shortest_pname, longest_pname, new LetterChecker()).check();
+        result = new StringFieldCheck(info.pname, "publisher name", shortest_pname, longest_pname, null).check();
         return result;
     }
 }

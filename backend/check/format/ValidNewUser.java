@@ -18,7 +18,7 @@ public class ValidNewUser extends FormatChecker{
         if (!result.isValid()){
             return result;
         }
-        result = new FullnameeCheck(info.fullname).check();
+        result = new FullnameCheck(info.fullname).check();
         if (!result.isValid()){
             return result;
         }

@@ -6,9 +6,9 @@ import backend.check.format.unit.LetterChecker;
 /**
  * Created by LU on 15/5/11.
  */
-public class FullnameeCheck extends StringFieldCheck{
+public class FullnameCheck extends StringFieldCheck{
 
-    public FullnameeCheck(String str){
+    public FullnameCheck(String str){
         this.str = str;
         long_limit = 20;
         short_limit = 4;

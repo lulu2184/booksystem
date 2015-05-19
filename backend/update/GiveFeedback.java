@@ -20,7 +20,7 @@ public class GiveFeedback extends Update{
     private long fid;
     private String username;
     private Date date;
-    private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm::ss");
 
     public GiveFeedback(String book, Integer score, String content){
         this.book = book;
