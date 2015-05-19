@@ -1,11 +1,9 @@
 package backend.update;
 
 
-import backend.Connector;
 import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
 import backend.check.format.DuplicateChecker;
-import backend.check.format.ValidNewBook;
 import backend.info.BookInfo;
 
 import java.sql.SQLException;
@@ -24,7 +22,7 @@ public class CreateNewBook extends Update{
         if (!DuplicateChecker.check(info.author)){
             return CheckResult.createFail("Duplicate authors.");
         }
-        return ValidNewBook.check(info);
+        return info.check();
     }
 
     protected CheckResult contentCheck() throws SQLException{
@@ -38,6 +36,7 @@ public class CreateNewBook extends Update{
         String sql = getInsertStatement("Book", BookInfo.getColumnsFormat(), info.getInsertFormat());
         sqlList.add(sql);
         for (String author : info.author){
+            author = author.replaceAll("'", "''");
             sql = getInsertStatement("AuthorOf", "aname, ISBN", addQuotes(author) + ", " + addQuotes(info.ISBN));
             sqlList.add(sql);
         }

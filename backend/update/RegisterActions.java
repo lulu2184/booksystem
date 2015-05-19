@@ -2,7 +2,6 @@ package backend.update;
 
 import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
-import backend.check.format.ValidNewUser;
 import backend.info.UserInfo;
 import backend.session.User;
 
@@ -24,7 +23,7 @@ public class RegisterActions extends Update{
     }
 
     protected CheckResult formatCheck(){
-        return ValidNewUser.check(info);
+        return info.check();
     }
 
     protected CheckResult contentCheck()throws SQLException{
