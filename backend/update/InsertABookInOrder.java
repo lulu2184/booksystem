@@ -27,16 +27,22 @@ public class InsertABookInOrder extends Update{
     }
 
     protected void getSQLList() throws SQLException{
-        String sql = "INSERT INTO InOrder(orderid, ISBN, num) VALUES('" + Order.getOrderString() + "', '" + book + "', " + Integer.toString(qty) + ");";
+        String sql;
+        String orderid = Order.getOrderString();
+        if (ExistingCheck.checkPair("InOrder", "orderid", Order.getOrderString(), "ISBN", addQuotes(book))){
+            sql = "UPDATE InOrder SET num = num + " + Integer.toString(qty) + " WHERE ISBN = '" + book + "' AND orderid = " + orderid + ";";
+        }else {
+            sql = "INSERT INTO InOrder(orderid, ISBN, num) VALUES(" + orderid + ", '" + book + "', " + Integer.toString(qty) + ");";
+        }
         sqlList.add(sql);
         sql = "UPDATE Book SET inum = inum - " + Integer.toString(qty) + " WHERE ISBN = '" + book + "';";
         sqlList.add(sql);
     }
 
     protected CheckResult contentCheck()throws SQLException{
-        if (!ExistingCheck.checkNumber("Orders", "orderid", Order.getOrderString())){
-            return CheckResult.createFail("Order not exists.");
-        }
+//        if (!ExistingCheck.checkNumber("Orders", "orderid", Order.getOrderString())){
+//            return CheckResult.createFail("Order not exists.");
+//        }
         if (!ExistingCheck.check("Book", "ISBN", book)){
             return CheckResult.createFail("Book not exists.");
         }

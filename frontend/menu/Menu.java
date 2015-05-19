@@ -39,8 +39,8 @@ abstract public class Menu {
             if (c >= 0 && c < menu.length){
                 pc.changeCurrentPage(menu[c]);
             }else if (c == menu.length){
-                prepareForExit();
                 result = pc.exitCurrentPage();
+                exitActions(pc);
             }else{
                 System.out.println("Wrong number.");
             }
@@ -59,7 +59,7 @@ abstract public class Menu {
         return transfer(pc);
     }
 
-    protected void prepareForExit(){}
+    protected void exitActions(PageController pc){}
 
     abstract public String getMessage();
 }

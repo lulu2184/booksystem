@@ -3,6 +3,7 @@ package frontend.menu;
 import backend.session.User;
 import frontend.Page;
 import backend.session.Order;
+import frontend.PageController;
 
 /**
  * Created by LU on 15/5/10.
@@ -28,7 +29,8 @@ public class OrderMenu extends Menu {
         return message + User.getUsername();
     }
 
-    protected void prepareForExit(){
-        Order.finishOrder();
+    protected void exitActions(PageController pc){
+        pc.changeCurrentPage(Page.ORDER_SUMMARY);
+//        Order.finishOrder();
     }
 }
