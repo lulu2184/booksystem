@@ -26,7 +26,10 @@ public class UserInfo {
     }
 
     public String getInsertFormat(){
-        return "'" + username + "', '" + password + "', '" + fullname + "', " + age + ", '" + address + "', '" + phone + "'";
+        String username = this.username.replaceAll("'", "''");
+        String fullname = this.fullname.replaceAll("'", "''");
+        String address = this.address.replaceAll("'", "''");
+        return "'" + username + "', '" + password + "', '" + fullname + "', " + age.toString() + ", '" + address + "', '" + phone + "'";
     }
 
 }

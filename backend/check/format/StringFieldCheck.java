@@ -1,4 +1,4 @@
-package backend.check.format.field;
+package backend.check.format;
 
 import backend.check.format.unit.StringContentChecker;
 import backend.check.format.unit.StringLengthChecker;
@@ -13,10 +13,6 @@ public class StringFieldCheck {
     protected StringContentChecker textChecker;
     protected int long_limit;
     protected int short_limit;
-
-    protected StringFieldCheck(){
-
-    }
 
     public StringFieldCheck(String str, String field_name,int short_limit, int long_limit, StringContentChecker textChecker){
         this.str = str;

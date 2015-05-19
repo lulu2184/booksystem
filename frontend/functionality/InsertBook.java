@@ -33,7 +33,7 @@ public class InsertBook extends Update{
         infoList.add(createDialogPair("please enter the subject of this book:", "subject"));
         infoList.add(createDialogPair("please enter the publisher name of this book:", "pname"));
         infoList.add(createDialogPair("please enter the publish year of this book:", "publish_year"));
-        infoList.add(createDialogPair("please enter the authors of this book:(use comma to seperate them)", "authors"));
+        infoList.add(createDialogPair("please enter the authors of this book:(use comma to seperate them, without extra space)", "authors"));
     }
 
     protected CheckResult actions() throws SQLException{

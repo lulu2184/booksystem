@@ -129,11 +129,6 @@ public enum Page {
 
     private final String message;
 
-    protected void noSuchFieldActions(PageController pc, NoSuchFieldException e) {
-        System.err.println("No Such Field " + e.getMessage());
-        pc.exitCurrentPage();
-    }
-
     Page(String message) {
         this.message = message;
     }

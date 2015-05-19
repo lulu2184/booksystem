@@ -1,11 +1,8 @@
 package backend.check.format;
 
 import backend.check.CheckResult;
-import backend.check.format.field.*;
-import backend.check.format.unit.LetterChecker;
 import backend.check.format.unit.TextChecker;
 import backend.info.BookInfo;
-import backend.info.UserInfo;
 
 /**
  * Created by LU on 15/5/12.

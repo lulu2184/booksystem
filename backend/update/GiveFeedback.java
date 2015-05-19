@@ -3,7 +3,6 @@ package backend.update;
 import backend.GenerateNewID;
 import backend.check.CheckResult;
 import backend.check.content.ExistingCheck;
-import backend.check.format.field.StringFieldCheck;
 import backend.session.User;
 
 import java.sql.SQLException;

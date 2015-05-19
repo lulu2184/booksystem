@@ -11,6 +11,7 @@ import java.sql.SQLException;
 public class OrderSummary extends ListQuery{
 
     public OrderSummary(){
+        action_name = "Order Summary";
     }
 
     protected QueryResult getResult() throws SQLException{
