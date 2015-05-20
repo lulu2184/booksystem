@@ -13,7 +13,7 @@ public class UsefulFeedback extends Query{
     private static final String[] field_name = {"fid", "usefulness score", "user", "date", "comment"};
 
     public UsefulFeedback(String book, Integer number){
-        this.book = book;
+        this.book = book.replaceAll("'", "''");
         this.number = number;
         result.setFieldsName(field_name);
         column_name = new String[]{"fid", "avg(R.rate_num)", "username", "propose_date", "content"};

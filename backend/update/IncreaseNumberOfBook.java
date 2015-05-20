@@ -14,7 +14,7 @@ public class IncreaseNumberOfBook extends Update{
     private int qty;
 
     public IncreaseNumberOfBook(String book, int qty){
-        this.book = book;
+        this.book = book.replaceAll("'", "''");
         this.qty = qty;
     }
 

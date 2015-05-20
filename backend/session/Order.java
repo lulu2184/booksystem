@@ -48,7 +48,7 @@ public class Order {
         Date date = new Date();
         long orderid = GenerateNewID.generate();
         String sql = "INSERT INTO Orders(orderid, order_date, username) VALUES(" + Long.toString(orderid) + ", '"
-                + dateformat.format(date) + "', '" + User.getUsername() + "');";
+                + dateformat.format(date) + "', '" + User.getUsername().replaceAll("'", "''") + "');";
         Connector.ExecuteInsertion(sql);
         return orderid;
     }

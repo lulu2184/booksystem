@@ -13,7 +13,7 @@ public class ValidUser extends InformationChecker {
     String password;
 
     public ValidUser(String _user, String _password){
-        username = _user;
+        username = _user.replaceAll("'", "''");
         password = _password;
     }
 

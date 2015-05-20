@@ -15,7 +15,7 @@ public class InsertABookInOrder extends Update{
     private int qty;
 
     public InsertABookInOrder(String book, int qty){
-        this.book = book;
+        this.book = book.replaceAll("'", "''");
         this.qty = qty;
     }
 

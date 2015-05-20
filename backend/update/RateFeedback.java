@@ -18,7 +18,7 @@ public class RateFeedback extends Update{
     public RateFeedback(long fid, Integer score){
         this.fid = fid;
         this.score = score;
-        this.username = User.getUsername();
+        this.username = User.getUsername().replaceAll("'", "''");
     }
 
     protected CheckResult formatCheck(){

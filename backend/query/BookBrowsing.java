@@ -42,7 +42,7 @@ public class BookBrowsing extends Query{
             for (IntStrPair condition : product) {
                 if (flag) sql += " AND ";
                 else flag = true;
-                sql += String.format(pattern[condition.x], condition.str);
+                sql += String.format(pattern[condition.x], condition.str.replaceAll("'", "''"));
             }
             sql += ")";
         }

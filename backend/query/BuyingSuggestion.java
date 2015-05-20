@@ -12,7 +12,7 @@ public class BuyingSuggestion extends Query{
 
     public BuyingSuggestion(String book){
         this.book = book;
-        this.username = User.getUsername();
+        this.username = User.getUsername().replaceAll("'", "''");
         result.setFieldsName(field_name);
         column_name = new String[] {"B2.ISBN","B2.title", "count"};
     }

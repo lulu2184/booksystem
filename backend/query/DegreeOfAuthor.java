@@ -15,8 +15,8 @@ public class DegreeOfAuthor{
     private String author2;
 
     public DegreeOfAuthor(String author1, String author2){
-        this.author1 = author1;
-        this.author2 = author2;
+        this.author1 = author1.replaceAll("'", "''");
+        this.author2 = author2.replaceAll("'", "''");
     }
 
     private CheckResult check() throws SQLException{
@@ -40,20 +40,20 @@ public class DegreeOfAuthor{
         if (!result.isValid()){
             return result;
         }
-        if (author1 == author2){
-            return result.createSuccess("0");
+        if (author1.equals(author2)){
+            return CheckResult.createSuccess("0");
         }
-        String from_clause = "AuthorOf A1, Book B1, AuthorOf A0";
-        String where_clause = "A1.aname = '" + author1 + "' AND A1.ISBN = B1.ISBN AND B1.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
+        String from_clause = "AuthorOf A1, AuthorOf A0";
+        String where_clause = "A1.aname = '" + author1 + "' AND A1.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
         if (linked(from_clause, where_clause)){
-            return result.createSuccess("1");
+            return CheckResult.createSuccess("1");
         }
-        from_clause = "AuthorOf A1, Book B1, AuthorOf A2, Book B2, AuthorOf A0";
-        where_clause = "A1.aname = '" + author1 +  "' AND A1.ISBN = B1.ISBN AND B1.ISBN = A2.ISBN AND A2.ISBN = B2.ISBN AND B2.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
+        from_clause = "AuthorOf A1, AuthorOf A2, AuthorOf A3, AuthorOf A0";
+        where_clause = "A1.aname = '" + author1 +  "' AND A1.ISBN = A2.ISBN AND A2.aname = A3.aname AND A3.ISBN = A0.ISBN AND A0.aname = '" + author2 + "'";
         if (linked(from_clause,where_clause)){
-            return result.createSuccess("2");
+            return CheckResult.createSuccess("2");
         }
-        return result.createSuccess("more than 2");
+        return CheckResult.createSuccess("more than 2");
     }
 
 }

@@ -14,7 +14,7 @@ public class DeclareUser extends Update{
     private Integer trust_num;
 
     public DeclareUser(String username, Integer trust_num){
-        this.username = username;
+        this.username = username.replaceAll("'", "''");
         this.trust_num = trust_num;
     }
 
@@ -26,7 +26,7 @@ public class DeclareUser extends Update{
     }
 
     protected CheckResult contentCheck() throws SQLException{
-        if (ExistingCheck.checkPair("Declares", "declare_username", addQuotes(User.getUsername()), "declared_username", addQuotes(username))){
+        if (ExistingCheck.checkPair("Declares", "declare_username", addQuotes(User.getUsername().replaceAll("'", "''")), "declared_username", addQuotes(username))){
             return CheckResult.createFail("You have already give trust number to this user.");
         }
         if (!ExistingCheck.check("User", "username", username)){
@@ -36,7 +36,7 @@ public class DeclareUser extends Update{
     }
 
     protected void getSQLList(){
-        String sql = getInsertStatement("Declares", "declare_username, declared_username, trust_num", addQuotes(User.getUsername()) + ", " + addQuotes(username) + ", " + trust_num.toString());
+        String sql = getInsertStatement("Declares", "declare_username, declared_username, trust_num", addQuotes(User.getUsername().replaceAll("'", "''")) + ", " + addQuotes(username) + ", " + trust_num.toString());
         sqlList.add(sql);
     }
 }
